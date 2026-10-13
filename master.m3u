@@ -1,393 +1,102 @@
 #EXTM3U
-# Last Updated: 2026-10-13 13:51:30
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://cmskos.bekaks.net:777/live/Ekremi_Belgjik/K1zy2KjUFf/337.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://cmskos.bekaks.net:777/live/Ekremi_Belgjik/K1zy2KjUFf/1653.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://cmskos.bekaks.net:777/live/Ekremi_Belgjik/K1zy2KjUFf/1654.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://kstv.us:8080/Clemg30/0573693077/12551
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://45.139.122.199:2095/live/Pm2e5NEugM/ngORTY5fvp/1576599.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://45.139.122.199:2095/live/Pm2e5NEugM/ngORTY5fvp/1576596.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://45.139.122.199:2095/live/Pm2e5NEugM/ngORTY5fvp/1576595.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://45.139.122.199:2095/live/Pm2e5NEugM/ngORTY5fvp/1576594.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://45.139.122.199:2095/live/Pm2e5NEugM/ngORTY5fvp/1576591.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://45.139.122.199:2095/live/Pm2e5NEugM/ngORTY5fvp/1633195.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://45.139.122.199:2095/live/Pm2e5NEugM/ngORTY5fvp/1633196.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://45.139.122.199:2095/live/Pm2e5NEugM/ngORTY5fvp/1576593.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://45.139.122.199:2095/live/Pm2e5NEugM/ngORTY5fvp/1576592.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/1547798.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/1547797.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/1547796.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:1
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/1547805.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:1
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/1547804.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:1
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/1547803.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/1547802.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/1513540.ts
-
-#EXT-X-TARGETDURATION:1
-#EXT-X-MEDIA-SEQUENCE:0
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/1547800.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://xvip.pro:80/Han5544/Sho1324/462885
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://xvip.pro:80/Han5544/Sho1324/462884
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/2122952.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/2122931.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/2122921.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/2122924.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/2122925.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/2122926.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/2122951.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/2122928.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/2122929.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tbtv.me:2095//live/383301917192/909365136076/2122930.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=124651&uid=15301&deviceMac=00:1A:79:1D:53:3F
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=124652&uid=15301&deviceMac=00:1A:79:1D:53:3F
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=124653&uid=15301&deviceMac=00:1A:79:1D:53:3F
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=124654&uid=15301&deviceMac=00:1A:79:1D:53:3F
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=124655&uid=15301&deviceMac=00:1A:79:1D:53:3F
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=124656&uid=15301&deviceMac=00:1A:79:1D:53:3F
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=124657&uid=15301&deviceMac=00:1A:79:1D:53:3F
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=125083&uid=15301&deviceMac=00:1A:79:1D:53:3F
-http://tv.cloudcdn.me:80/live.ts?channelId=125083&uid=15301&deviceMac=00:1A:79:1D:53:3F
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=125084&uid=15301&deviceMac=00:1A:79:1D:53:3F
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=129889&uid=4621&deviceMac=00:1A:79:4A:02:91
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=129890&uid=4621&deviceMac=00:1A:79:4A:02:91
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=129891&uid=4621&deviceMac=00:1A:79:4A:02:91
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=129892&uid=4621&deviceMac=00:1A:79:4A:02:91
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://tv.cloudcdn.me:80/live.ts?channelId=129893&uid=4621&deviceMac=00:1A:79:4A:02:91
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://vpn.rivostv.space:80/live/b87ed4b5/ab28e6b6/686439.ts
-
-#EXT-X-VERSION:1
-#EXT-X-MEDIA-SEQUENCE:1
-#EXT-X-TARGETDURATION:1
-#EXT-X-I-FRAMES-ONLY
-#EXT-X-DISCONTINUITY-SEQUENCE:2
-#EXT-X-ALLOW-CACHE:NO
-#EXTINF:1,
-http://vpn.rivostv.space:80/live/b87ed4b5/ab28e6b6/260085.ts
-
+# Last Updated: 2026-10-13 13:54:32
+#EXTINF:-1, BeinAfc
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinAfc.m3u8
+#EXTINF:-1, BeinAfc1
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinAfc1.m3u8
+#EXTINF:-1, BeinAfc2
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinAfc2.m3u8
+#EXTINF:-1, BeinAfc3
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinAfc3.m3u8
+#EXTINF:-1, BeinEntDrama
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinEntDrama.m3u8
+#EXTINF:-1, BeinEntMovie1
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinEntMovie1.m3u8
+#EXTINF:-1, BeinEntMovie2
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinEntMovie2.m3u8
+#EXTINF:-1, BeinEntMovie3
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinEntMovie3.m3u8
+#EXTINF:-1, BeinEntMovie4
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinEntMovie4.m3u8
+#EXTINF:-1, BeinEntOffice1
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinEntOffice1.m3u8
+#EXTINF:-1, BeinEntOffice2
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinEntOffice2.m3u8
+#EXTINF:-1, BeinEntSeries1
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinEntSeries1.m3u8
+#EXTINF:-1, BeinEntSeries2
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinEntSeries2.m3u8
+#EXTINF:-1, BeinSportAR1
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportAR1.m3u8
+#EXTINF:-1, BeinSportAR2
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportAR2.m3u8
+#EXTINF:-1, BeinSportAR3
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportAR3.m3u8
+#EXTINF:-1, BeinSportAR4
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportAR4.m3u8
+#EXTINF:-1, BeinSportAR5
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportAR5.m3u8
+#EXTINF:-1, BeinSportAR6
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportAR6.m3u8
+#EXTINF:-1, BeinSportAR7
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportAR7.m3u8
+#EXTINF:-1, BeinSportAR8
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportAR8.m3u8
+#EXTINF:-1, BeinSportAR9
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportAR9.m3u8
+#EXTINF:-1, BeinSportENG1
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportENG1.m3u8
+#EXTINF:-1, BeinSportENG2
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportENG2.m3u8
+#EXTINF:-1, BeinSportFR1
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportFR1.m3u8
+#EXTINF:-1, BeinSportFR10
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportFR10.m3u8
+#EXTINF:-1, BeinSportFR2
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportFR2.m3u8
+#EXTINF:-1, BeinSportFR3
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportFR3.m3u8
+#EXTINF:-1, BeinSportFR4
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportFR4.m3u8
+#EXTINF:-1, BeinSportFR5
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportFR5.m3u8
+#EXTINF:-1, BeinSportFR6
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportFR6.m3u8
+#EXTINF:-1, BeinSportFR7
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportFR7.m3u8
+#EXTINF:-1, BeinSportFR8
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportFR8.m3u8
+#EXTINF:-1, BeinSportFR9
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportFR9.m3u8
+#EXTINF:-1, BeinSportTOD1
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTOD1.m3u8
+#EXTINF:-1, BeinSportTOD2
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTOD2.m3u8
+#EXTINF:-1, BeinSportTOD3
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTOD3.m3u8
+#EXTINF:-1, BeinSportTOD4
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTOD4.m3u8
+#EXTINF:-1, BeinSportTOD5
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTOD5.m3u8
+#EXTINF:-1, BeinSportTOD6
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTOD6.m3u8
+#EXTINF:-1, BeinSportTOD7
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTOD7.m3u8
+#EXTINF:-1, BeinSportTOD8
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTOD8.m3u8
+#EXTINF:-1, BeinSportTOD9
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTOD9.m3u8
+#EXTINF:-1, BeinSportTR1
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTR1.m3u8
+#EXTINF:-1, BeinSportTR2
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTR2.m3u8
+#EXTINF:-1, BeinSportTR3
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTR3.m3u8
+#EXTINF:-1, BeinSportTR4
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTR4.m3u8
+#EXTINF:-1, BeinSportTR5
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTR5.m3u8
+#EXTINF:-1, BeinSportTRmax1
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTRmax1.m3u8
+#EXTINF:-1, BeinSportTRmax2
+https://raw.githubusercontent.com/B-inal-123/bein-s/inal-22/BeinSportTRmax2.m3u8
