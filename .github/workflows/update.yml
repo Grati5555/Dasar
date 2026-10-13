@@ -2,29 +2,30 @@ name: Auto Update and Merge M3U
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # Otomatis berjalan setiap 6 jam sekali
+    - cron: '0 */2 * * *' # Otomatis berjalan setiap 2 jam sekali
   workflow_dispatch: # Bisa dijalankan manual kapan saja
 
 jobs:
   update:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Wajib ada agar GitHub bisa menyimpan perubahan file
+      contents: write # Wajib agar GitHub Actions bisa menyimpan file
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: setup-python@v4
         with:
           python-version: '3.x'
 
-      - name: Download latest M3U files from source
+      - name: Download all M3U files from source
         run: |
-          # Masukkan link raw file M3U milik orang lain di sini. 
-          # Anda bisa menambahkan baris curl baru jika file sumbernya lebih dari satu.
-          curl -o BeinAfc.m3u8 "https://raw.githubusercontent.com/B-inal-123/bein-s/refs/heads/inal-22/BeinAfc.m3u8"
-          curl -o BeinSportFR10.m3u8 "https://raw.githubusercontent.com/B-inal-123/bein-s/refs/heads/inal-22/BeinSportFR10.m3u8"
+          # Masukkan semua link Raw file sumber di sini (tambahkan baris curl sebanyak yang Anda mau)
+          curl -o BeinAfc.m3u8 "https://raw.githubusercontent.com/B-inal-123/bein-s/main/BeinAfc.m3u8"
+          curl -o BeinSportFR10.m3u8 "https://raw.githubusercontent.com/B-inal-123/bein-s/main/BeinSportFR10.m3u8"
+          # Contoh jika ingin menambah file lain, tinggal ikuti format di bawah ini:
+          # curl -o NamaFileLain.m3u8 "URL_RAW_FILE_LAINNYA"
 
       - name: Run merge script
         run: python merge.py
