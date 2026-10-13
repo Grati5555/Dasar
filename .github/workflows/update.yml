@@ -21,8 +21,8 @@ jobs:
 
       - name: Download all M3U files from source
         run: |
-          curl -o BeinAfc.m3u8 "https://raw.githubusercontent.com/B-inal-123/bein-s/main/BeinAfc.m3u8"
-          curl -o BeinSportFR10.m3u8 "https://raw.githubusercontent.com/B-inal-123/bein-s/main/BeinSportFR10.m3u8"
+          curl -o bein-s "https://github.com/B-inal-123/bein-s"
+          
 
       - name: Run merge script
         run: python merge.py
