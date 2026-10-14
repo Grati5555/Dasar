@@ -1,4 +1,5 @@
 import urllib.request
+import re
 
 # URL Google Drive sumber mentah
 SOURCE_URL = "https://drive.google.com/uc?id=11SCMxGrXt4ECr1N0PXqtu26zSNYkKEYm"
@@ -15,14 +16,13 @@ TARGET_GROUPS = [
     "PREMIER LEAGUE"
 ]
 
-def clean_name(text):
-    """Mengganti kata Koko / Kokouyo (case-insensitive) menjadi Test"""
-    # Ganti variasi penulisan
-    cleaned = text
-    for target in ["kokouyo", "koko"]:
-        # Mengganti dengan tetap mempertahankan struktur di sekitarnya
-        import re
-        cleaned = re.sub(re.escape(target), "Test", cleaned, flags=re.IGNORECASE)
+def clean_line(line):
+    """Mengganti kata Koko / Kokouyo menjadi Test di seluruh baris EXTINF"""
+    cleaned = line
+    # Mengganti berbagai variasi penulisan Koko / Kokouyo menjadi Test
+    patterns = [r"kokouyo", r"koko"]
+    for pattern in patterns:
+        cleaned = re.sub(pattern, "Test", cleaned, flags=re.IGNORECASE)
     return cleaned
 
 def generate_playlist():
@@ -50,8 +50,8 @@ def generate_playlist():
                     break
             
             if matched:
-                # Bersihkan nama channel atau group jika mengandung Koko / Kokouyo
-                cleaned_line = clean_name(line)
+                # Bersihkan baris EXTINF dari kata Koko/Kokouyo (termasuk group-title)
+                cleaned_line = clean_line(line)
                 
                 filtered_lines.append(cleaned_line)
                 i += 1
