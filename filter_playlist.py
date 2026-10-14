@@ -1,6 +1,7 @@
-Import urllib.request
+import urllib.request
 import urllib.error
 import re
+
 
 # Menggunakan sumber playlist alternatif yang lebih stabil untuk siaran lokal dan sport
 SOURCE_URLS = [
