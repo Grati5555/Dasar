@@ -15,6 +15,16 @@ TARGET_GROUPS = [
     "PREMIER LEAGUE"
 ]
 
+def clean_name(text):
+    """Mengganti kata Koko / Kokouyo (case-insensitive) menjadi Test"""
+    # Ganti variasi penulisan
+    cleaned = text
+    for target in ["kokouyo", "koko"]:
+        # Mengganti dengan tetap mempertahankan struktur di sekitarnya
+        import re
+        cleaned = re.sub(re.escape(target), "Test", cleaned, flags=re.IGNORECASE)
+    return cleaned
+
 def generate_playlist():
     print("Mengambil data playlist dari sumber...")
     req = urllib.request.Request(
@@ -40,7 +50,10 @@ def generate_playlist():
                     break
             
             if matched:
-                filtered_lines.append(line)
+                # Bersihkan nama channel atau group jika mengandung Koko / Kokouyo
+                cleaned_line = clean_name(line)
+                
+                filtered_lines.append(cleaned_line)
                 i += 1
                 while i < len(lines) and (lines[i].startswith("#") and not lines[i].startswith("#EXTINF")):
                     filtered_lines.append(lines[i])
@@ -49,11 +62,11 @@ def generate_playlist():
                     filtered_lines.append(lines[i])
         i += 1
 
-    # Disimpan dengan nama file baru sesuai permintaan
+    # Disimpan dengan nama file MasterKokoUyo.m3u
     output_filename = "MasterKokoUyo.m3u"
     with open(output_filename, "w", encoding="utf-8") as f:
         f.write("\n".join(filtered_lines))
-    print(f"Playlist berhasil diperbarui! Disimpan ke {output_filename}")
+    print(f"Playlist berhasil dibersihkan & diperbarui! Disimpan ke {output_filename}")
 
 if __name__ == "__main__":
     generate_playlist()
