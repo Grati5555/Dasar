@@ -4,7 +4,7 @@ import re
 # URL Google Drive sumber mentah
 SOURCE_URL = "https://drive.google.com/uc?id=11SCMxGrXt4ECr1N0PXqtu26zSNYkKEYm"
 
-# Kategori yang diminta: Liga Champions, TV Nasional, Olahraga, dan Live Olahraga
+# Tambahkan "KOKOUYO" ke dalam target agar kategori tersebut ikut tersaring dan dibersihkan
 TARGET_GROUPS = [
     "CHAMPIONS LEAGUE", 
     "LOKAL", 
@@ -13,13 +13,13 @@ TARGET_GROUPS = [
     "LIVE FEED SPORT", 
     "UEFA NATIONS LEAGUE",
     "BRI LIGA 1",
-    "PREMIER LEAGUE"
+    "PREMIER LEAGUE",
+    "KOKOUYO"  # Ditambahkan agar kategori pilihan KokoUyo ikut masuk & dibersihkan namanya
 ]
 
 def clean_line(line):
     """Mengganti kata Koko / Kokouyo menjadi Test di seluruh baris EXTINF"""
     cleaned = line
-    # Mengganti berbagai variasi penulisan Koko / Kokouyo menjadi Test
     patterns = [r"kokouyo", r"koko"]
     for pattern in patterns:
         cleaned = re.sub(pattern, "Test", cleaned, flags=re.IGNORECASE)
