@@ -76,7 +76,7 @@ for source_url in SOURCE_URLS:
     try:
         req_source = urllib.request.Request(
             source_url, 
-            headers={"User-Agent": "Mozilla/5.0"}
+            headers={"User-Agent": "VLC/3.0.16 LibVLC/3.0.16"}
         )
         with urllib.request.urlopen(req_source, timeout=15) as response:
             playlist_data = response.read().decode("utf-8")
@@ -93,6 +93,7 @@ for source_url in SOURCE_URLS:
         if line.startswith("#EXTINF"):
             meta = line
             
+            # Mengambil seluruh baris konfigurasi di bawahnya (KODIPROP, EXTVLCOPT, dll.) sampai ketemu URL http
             block_lines = [meta]
             j = i + 1
             actual_url = ""
@@ -101,12 +102,15 @@ for source_url in SOURCE_URLS:
                 if next_line.startswith("#"):
                     block_lines.append(next_line)
                     j += 1
-                elif next_line.startswith("http"):
+                elif next_line.startswith("http") or next_line.startswith("https") or "://" in next_line:
                     actual_url = next_line
                     j += 1
                     break
                 else:
-                    j += 1
+                    # Antisipasi baris kosong atau teks lain di dalam blok
+                    if next_line == "":
+                        j += 1
+                        continue
                     break
 
             cat = detect_category(meta, source_url)
@@ -117,6 +121,7 @@ for source_url in SOURCE_URLS:
                     meta = meta.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{cat}"')
                 
                 block_lines[0] = meta
+                # Gabungkan semua baris properti secara utuh tanpa ada yang terpotong
                 channel_block = "\n".join(block_lines) + f"\n{actual_url}\n"
                 
                 if channel_block not in categorized_channels[cat]:
