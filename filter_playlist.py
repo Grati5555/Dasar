@@ -1,10 +1,10 @@
-import urllib.request
+Import urllib.request
 import urllib.error
 import re
 
 # Menggunakan sumber playlist alternatif yang lebih stabil untuk siaran lokal dan sport
 SOURCE_URLS = [
-    "https://raw.githubusercontent.com/FajarTheKing/IPTV/main/indonesia.m3u", # Alternatif list Indonesia yang aktif
+    "https://raw.githubusercontent.com/apistech/project/refs/heads/main/IndihomeTV.m3u", # Alternatif list Indonesia yang aktif
     "https://iptv-org.github.io/iptv/countries/id.m3u",
     "https://iptv-org.github.io/iptv/categories/sports.m3u",
     "https://iptv-org.github.io/iptv/countries/sa.m3u"
