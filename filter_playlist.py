@@ -2,10 +2,8 @@ import urllib.request
 import urllib.error
 import re
 
-
-# Menggunakan sumber playlist alternatif yang lebih stabil untuk siaran lokal dan sport
 SOURCE_URLS = [
-    "https://raw.githubusercontent.com/apistech/project/refs/heads/main/IndihomeTV.m3u", # Alternatif list Indonesia yang aktif
+    "https://raw.githubusercontent.com/apistech/project/refs/heads/main/IndihomeTV.m3u",
     "https://iptv-org.github.io/iptv/countries/id.m3u",
     "https://iptv-org.github.io/iptv/categories/sports.m3u",
     "https://iptv-org.github.io/iptv/countries/sa.m3u"
@@ -35,33 +33,53 @@ def detect_category(meta_line, source_url):
             return "3. Religiuos (Islamic & General)"
         return None
 
-    # Deteksi kategori berdasarkan nama channel
+    # 1. Cek Kategori Religi
     if any(k in meta_lower for k in ["rodja", "makkah", "madinah", "religi", "islam", "quran", "sunnah", "surau", "muhammad", "tv 9", "tv9", "aswaja", "al bahjah", "insan", "tvmu", "madaniah", "ahsan", "mta", "niaga"]):
         return "3. Religiuos (Islamic & General)"
+        
+    # 2. Cek Kategori Berita
     elif any(k in meta_lower for k in ["metro", "tvone", "tv one", "cnn", "cnbc", "kompas", "beritasatu", "idtv"]):
         return "2. Berita (News)"
+        
+    # 3. Cek Sport UK / Premier League
     elif any(k in meta_lower for k in ["uk", "england", "premier league", "sky sports", "tnt sports", "bbc sport"]) or "categories/sports.m3u" in source_url and any(k in meta_lower for k in ["uk", "sky", "tnt"]):
         if any(k in meta_lower for k in ["champions", "laliga", "serie a", "bundesliga", "espn", "eurosport"]):
             return "6. Sport - Champions & European Leagues"
         return "5. Sport - Premier League & UK"
+        
+    # 4. Cek Sport Champions / Eropa
     elif any(k in meta_lower for k in ["champions", "europe", "laliga", "serie a", "bundesliga", "espn", "eurosport"]):
         return "6. Sport - Champions & European Leagues"
+        
+    # 5. Cek Sport Indonesia
     elif any(k in meta_lower for k in ["spotv", "bein", "soccer", "mnc sports", "champions tv", "vidio", "nba", "sport", "olahraga", "bola"]):
         return "4. Sport - Indonesia"
     elif "categories/sports.m3u" in source_url:
         return "7. Sport - Global & Other"
-    elif any(k in meta_lower for k in ["banjar", "duta", "kalsel", "kaltim", "kalteng", "kalbar", "jaktv", "jak tv", "atv", "malang", "tvri kalimantan", "tvri kalsel", "jambi", "jawa pos"]):
+        
+    # 6. Cek Lokal & Daerah
+    elif any(k in meta_lower for k in ["banjar", "duta", "kalsel", "kaltim", "kalteng", "kalbar", "jaktv", "jak tv", "atv", "malang", "tvri kalimantan", "tvri kalsel", "jambi", "jawa pos", "balikpapan", "bandung", "banten", "batam", "jtv", "kilisuci", "mbg", "padang", "pontv", "rri net", "stv", "tabalong"]):
         return "11. Lokal & Daerah (Kalimantan & Nusantara)"
+        
+    # 7. Cek Anak-anak
     elif any(k in meta_lower for k in ["cartoon", "nickelodeon", "disney", "dreamworks", "cbeebies", "kids"]):
         return "10. Anak-anak (Kids)"
+        
+    # 8. Cek Dokumenter & Lifestyle
     elif any(k in meta_lower for k in ["national geographic", "discovery", "animal planet", "history", "bbc earth", "food", "travel"]):
         return "9. Dokumenter, Sains & Gaya Hidup (Documentary & Lifestyle)"
+        
+    # 9. Cek Hiburan & Film
     elif any(k in meta_lower for k in ["bioskop", "zee", "drama", "hallyu", "prambors", "dewa", "movie", "entertainment", "big movies"]):
         return "8. Hiburan, Film & Musik (Entertainment & Movies)"
-    elif any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans tv", "trans7", "gtv", "mnc", "rtv", "net", "mdtv", "mentari", "btv", "inews", "tvri"]):
+        
+    # 10. Cek Nasional (Harus spesifik, TIDAK BOLEH asal tangkap)
+    elif any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans tv", "trans7", "gtv", "mnc tv", "mnctv", "rtv", "net.", "net tv", "mdtv", "mentari", "btv", "inews", "tvri nasional", "tvri"]):
         return "1. Nasional (Free-to-Air Umum)"
+        
+    # Jika channel tidak masuk kategori di atas (seperti Anime, Crunchyroll, dll.), abaikan/buang!
     else:
-        return "1. Nasional (Free-to-Air Umum)"
+        return None
 
 print("Memperbarui dan menyaring playlist...")
 
@@ -93,7 +111,6 @@ for source_url in SOURCE_URLS:
                 i += 2
                 continue
                 
-            # Validasi link agar siaran tidak macet 0%
             is_active = False
             if url.startswith("http"):
                 if "categories/sports.m3u" in source_url or "countries/sa.m3u" in source_url:
