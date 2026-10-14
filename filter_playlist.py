@@ -78,7 +78,7 @@ for source_url in SOURCE_URLS:
             source_url, 
             headers={"User-Agent": "Mozilla/5.0"}
         )
-        with urllib.request.urlopen(req_source, timeout=10) as response:
+        with urllib.request.urlopen(req_source, timeout=15) as response:
             playlist_data = response.read().decode("utf-8")
     except Exception as e:
         print(f"Gagal mengunduh {source_url}: {e}")
@@ -93,7 +93,6 @@ for source_url in SOURCE_URLS:
         if line.startswith("#EXTINF"):
             meta = line
             
-            # Membaca seluruh baris properti dan link URL di bawahnya secara lengkap
             block_lines = [meta]
             j = i + 1
             actual_url = ""
@@ -127,7 +126,7 @@ for source_url in SOURCE_URLS:
             i = j
         else:
             i += 1
-    print(f"Berhasil menambahkan {added_count} channel.")
+    print(f"Berhasil menambahkan {added_count} channel dari {source_url}.")
 
 final_output = ["#EXTM3U\n"]
 for cat in categorized_channels.keys():
@@ -137,4 +136,4 @@ for cat in categorized_channels.keys():
 with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
     f.writelines(final_output)
 
-print("Selesai! Playlist siap digunakan.")
+print("Selesai! File master_active.m3u berhasil diperbarui.")
