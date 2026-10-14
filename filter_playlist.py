@@ -3,7 +3,7 @@ import urllib.error
 import re
 
 SOURCE_URLS = [
-    "https://plsemar.pages.dev",  # Sumber playlist baru yang menggantikan IndihomeTV.m3u
+    "https://plsemar.pages.dev",
     "https://iptv-org.github.io/iptv/countries/id.m3u",
     "https://iptv-org.github.io/iptv/categories/sports.m3u",
     "https://iptv-org.github.io/iptv/countries/sa.m3u"
@@ -28,12 +28,12 @@ categorized_channels = {
 def detect_category(meta_line, source_url):
     meta_lower = meta_line.lower()
     
-    # 1. Khusus sumber plsemar.pages.dev: HANYA ambil kategori Nasional, buang yang lain
+    # 1. Khusus sumber plsemar.pages.dev: Ambil kategori Nasional
     if "plsemar.pages.dev" in source_url.lower():
         if any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans tv", "trans7", "gtv", "mnc", "rtv", "net", "mdtv", "mentari", "btv", "inews", "tvri"]):
             return "1. Nasional (Free-to-Air Umum)"
         else:
-            return None  # Buang non-nasional dari sumber ini
+            return None
 
     # 2. Sumber Saudi Arabia khusus Religi
     if "countries/sa.m3u" in source_url:
@@ -93,7 +93,7 @@ for source_url in SOURCE_URLS:
         if line.startswith("#EXTINF"):
             meta = line
             
-            # Melewati baris properti tambahan (#KODIPROP, #EXTVLCOPT, dll.) jika ada, lalu ambil URL aslinya (http...)
+            # Membaca seluruh baris properti dan link URL di bawahnya secara lengkap
             block_lines = [meta]
             j = i + 1
             actual_url = ""
