@@ -28,12 +28,12 @@ categorized_channels = {
 def detect_category(meta_line, source_url):
     meta_lower = meta_line.lower()
     
-    # 1. Khusus sumber Indihome: HANYA ambil kategori Nasional, abaikan hiburan/lifestyle/lainnya
+    # 1. Khusus sumber Indihome: Ambil kategori Nasional
     if "indihometv.m3u" in source_url.lower():
         if any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans tv", "trans7", "gtv", "mnc", "rtv", "net", "mdtv", "mentari", "btv", "inews", "tvri"]):
             return "1. Nasional (Free-to-Air Umum)"
         else:
-            return None  # Buang semua non-nasional dari Indihome
+            return None  # Buang non-nasional dari Indihome
 
     # 2. Sumber Saudi Arabia khusus Religi
     if "countries/sa.m3u" in source_url:
@@ -41,7 +41,7 @@ def detect_category(meta_line, source_url):
             return "3. Religiuos (Islamic & General)"
         return None
 
-    # 3. Deteksi untuk sumber lainnya (iptv-org id, sports, dll.)
+    # 3. Sumber lainnya (iptv-org)
     if any(k in meta_lower for k in ["rodja", "makkah", "madinah", "religi", "islam", "quran", "sunnah", "surau", "muhammad", "tv 9", "tv9", "aswaja", "al bahjah", "insan", "tvmu", "madaniah", "ahsan", "mta", "niaga"]):
         return "3. Religiuos (Islamic & General)"
     elif any(k in meta_lower for k in ["metro tv", "tvone", "tv one", "cnn indonesia", "cnbc indonesia", "kompas tv", "beritasatu", "idtv"]):
@@ -92,40 +92,43 @@ for source_url in SOURCE_URLS:
         line = lines[i].strip()
         if line.startswith("#EXTINF"):
             meta = line
-            url = lines[i+1].strip() if i+1 < len(lines) else ""
             
+            # Kumpulkan baris properti tambahan (#KODIPROP, #EXTVLCOPT, dll.) dan cari baris URL aslinya (http...)
+            block_lines = [meta]
+            j = i + 1
+            actual_url = ""
+            while j < len(lines):
+                next_line = lines[j].strip()
+                if next_line.startswith("#"):
+                    block_lines.append(next_line)
+                    j += 1
+                elif next_line.startswith("http"):
+                    actual_url = next_line
+                    j += 1
+                    break
+                else:
+                    j += 1
+                    break
+
             cat = detect_category(meta, source_url)
-            if cat is None:
-                i += 2
-                continue
-                
-            # Validasi link yang lebih longgar untuk kategori nasional agar tidak mudah terhapus
-            is_active = True
-            if not "indihometv.m3u" in source_url.lower() and not "categories/sports.m3u" in source_url and not "countries/sa.m3u" in source_url:
-                if url.startswith("http"):
-                    try:
-                        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-                        with urllib.request.urlopen(req, timeout=2) as res:
-                            if res.status >= 400:
-                                is_active = False
-                    except Exception:
-                        is_active = False
-            
-            if is_active:
+            if cat is not None and actual_url:
+                # Format ulang group-title
                 if 'group-title="' in meta:
                     meta = re.sub(r'group-title="[^"]*"', f'group-title="{cat}"', meta)
                 else:
                     meta = meta.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{cat}"')
-                    
-                channel_entry = f"{meta}\n{url}\n"
-                if channel_entry not in categorized_channels[cat]:
-                    categorized_channels[cat].append(channel_entry)
+                
+                block_lines[0] = meta
+                channel_block = "\n".join(block_lines) + f"\n{actual_url}\n"
+                
+                if channel_block not in categorized_channels[cat]:
+                    categorized_channels[cat].append(channel_block)
                     added_count += 1
             
-            i += 2
+            i = j
         else:
             i += 1
-    print(f"Berhasil menambahkan {added_count} channel aktif.")
+    print(f"Berhasil menambahkan {added_count} channel.")
 
 final_output = ["#EXTM3U\n"]
 for cat in categorized_channels.keys():
