@@ -28,12 +28,12 @@ categorized_channels = {
 def detect_category(meta_line, source_url):
     meta_lower = meta_line.lower()
     
-    # 1. Khusus sumber Indihome: HANYA ambil yang masuk kategori Nasional, selebihnya abaikan!
+    # 1. Khusus sumber Indihome: HANYA ambil kategori Nasional, abaikan hiburan/lifestyle/lainnya
     if "indihometv.m3u" in source_url.lower():
-        if any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans tv", "trans7", "gtv", "mnc tv", "mnctv", "rtv", "net.", "net tv", "mdtv", "mentari", "btv", "inews"]):
+        if any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans tv", "trans7", "gtv", "mnc", "rtv", "net", "mdtv", "mentari", "btv", "inews", "tvri"]):
             return "1. Nasional (Free-to-Air Umum)"
         else:
-            return None  # Abaikan semua channel non-nasional dari Indihome
+            return None  # Buang semua non-nasional dari Indihome
 
     # 2. Sumber Saudi Arabia khusus Religi
     if "countries/sa.m3u" in source_url:
@@ -64,7 +64,7 @@ def detect_category(meta_line, source_url):
         return "9. Dokumenter, Sains & Gaya Hidup (Documentary & Lifestyle)"
     elif any(k in meta_lower for k in ["bioskop", "zee", "drama", "hallyu", "prambors", "dewa", "movie", "entertainment", "big movies"]):
         return "8. Hiburan, Film & Musik (Entertainment & Movies)"
-    elif any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans tv", "trans7", "gtv", "mnc tv", "mnctv", "rtv", "net.", "net tv", "mdtv", "mentari", "btv", "inews", "tvri nasional", "tvri hd"]):
+    elif any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans tv", "trans7", "gtv", "mnc", "rtv", "net", "mdtv", "mentari", "btv", "inews", "tvri"]):
         return "1. Nasional (Free-to-Air Umum)"
     else:
         return None
@@ -99,16 +99,15 @@ for source_url in SOURCE_URLS:
                 i += 2
                 continue
                 
-            is_active = False
-            if url.startswith("http"):
-                if "categories/sports.m3u" in source_url or "countries/sa.m3u" in source_url:
-                    is_active = True
-                else:
+            # Validasi link yang lebih longgar untuk kategori nasional agar tidak mudah terhapus
+            is_active = True
+            if not "indihometv.m3u" in source_url.lower() and not "categories/sports.m3u" in source_url and not "countries/sa.m3u" in source_url:
+                if url.startswith("http"):
                     try:
                         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-                        with urllib.request.urlopen(req, timeout=3) as res:
-                            if res.status < 400:
-                                is_active = True
+                        with urllib.request.urlopen(req, timeout=2) as res:
+                            if res.status >= 400:
+                                is_active = False
                     except Exception:
                         is_active = False
             
