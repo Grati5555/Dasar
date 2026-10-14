@@ -2,7 +2,9 @@ import urllib.request
 import urllib.error
 import re
 
+# Menggunakan sumber playlist alternatif yang lebih stabil untuk siaran lokal dan sport
 SOURCE_URLS = [
+    "https://raw.githubusercontent.com/FajarTheKing/IPTV/main/indonesia.m3u", # Alternatif list Indonesia yang aktif
     "https://iptv-org.github.io/iptv/countries/id.m3u",
     "https://iptv-org.github.io/iptv/categories/sports.m3u",
     "https://iptv-org.github.io/iptv/countries/sa.m3u"
@@ -10,7 +12,6 @@ SOURCE_URLS = [
 
 OUTPUT_FILE = "master_active.m3u"
 
-# Struktur kategori baru sesuai permintaan Anda
 categorized_channels = {
     "1. Nasional (Free-to-Air Umum)": [],
     "2. Berita (News)": [],
@@ -28,62 +29,47 @@ categorized_channels = {
 def detect_category(meta_line, source_url):
     meta_lower = meta_line.lower()
     
-    # 1. Sumber Saudi Arabia khusus Religi (Quran & Sunnah/Madinah/Makkah)
     if "countries/sa.m3u" in source_url:
         if any(k in meta_lower for k in ["quran", "sunnah", "makkah", "madinah", "saudi quran", "saudi sunnah"]):
             return "3. Religiuos (Islamic & General)"
         return None
 
-    # 2. Sumber Indonesia (id.m3u) dipetakan ke berbagai kategori
-    if "countries/id.m3u" in source_url:
-        # Religi Lokal
-        if any(k in meta_lower for k in ["rodja", "makkah", "madinah", "religi", "islam", "quran", "sunnah", "surau", "muhammad", "tv 9", "tv9", "aswaja", "al bahjah", "insan", "tvmu", "madaniah", "ahsan", "mta", "niaga"]):
-            return "3. Religiuos (Islamic & General)"
-        # Berita
-        elif any(k in meta_lower for k in ["metro", "tvone", "tv one", "cnn", "cnbc", "kompas", "beritasatu", "idtv"]):
-            return "2. Berita (News)"
-        # Sport Lokal
-        elif any(k in meta_lower for k in ["spotv", "bein", "soccer", "mnc sports", "champions tv", "vidio", "nba", "sport", "olahraga", "bola"]):
-            return "4. Sport - Indonesia"
-        # Lokal & Daerah (Kalimantan & Nusantara)
-        elif any(k in meta_lower for k in ["banjar", "duta", "kalsel", "kaltim", "kalteng", "kalbar", "jaktv", "jak tv", "atv", "malang", "tvri kalimantan", "tvri kalsel"]):
-            return "11. Lokal & Daerah (Kalimantan & Nusantara)"
-        # Anak-anak
-        elif any(k in meta_lower for k in ["cartoon", "nickelodeon", "disney", "dreamworks", "cbeebies", "kids"]):
-            return "10. Anak-anak (Kids)"
-        # Dokumenter & Lifestyle
-        elif any(k in meta_lower for k in ["national geographic", "discovery", "animal planet", "history", "bbc earth", "food", "travel"]):
-            return "9. Dokumenter, Sains & Gaya Hidup (Documentary & Lifestyle)"
-        # Hiburan & Film
-        elif any(k in meta_lower for k in ["bioskop", "zee", "drama", "hallyu", "prambors", "dewa", "movie", "entertainment"]):
-            return "8. Hiburan, Film & Musik (Entertainment & Movies)"
-        # Nasional (FTA Umum)
-        elif any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans tv", "trans7", "gtv", "mnc", "rtv", "net", "mdtv", "mentari", "btv"]):
-            return "1. Nasional (Free-to-Air Umum)"
-        else:
-            return "1. Nasional (Free-to-Air Umum)"
-
-    # 3. Sumber Sport Global (sports.m3u) dibagi berdasarkan liga/negara
-    if "categories/sports.m3u" in source_url:
-        if any(k in meta_lower for k in ["uk", "england", "premier league", "sky sports", "tnt sports", "bbc sport"]):
-            return "5. Sport - Premier League & UK"
-        elif any(k in meta_lower for k in ["champions", "europe", "laliga", "serie a", "bundesliga", "espn", "eurosport"]):
+    # Deteksi kategori berdasarkan nama channel
+    if any(k in meta_lower for k in ["rodja", "makkah", "madinah", "religi", "islam", "quran", "sunnah", "surau", "muhammad", "tv 9", "tv9", "aswaja", "al bahjah", "insan", "tvmu", "madaniah", "ahsan", "mta", "niaga"]):
+        return "3. Religiuos (Islamic & General)"
+    elif any(k in meta_lower for k in ["metro", "tvone", "tv one", "cnn", "cnbc", "kompas", "beritasatu", "idtv"]):
+        return "2. Berita (News)"
+    elif any(k in meta_lower for k in ["uk", "england", "premier league", "sky sports", "tnt sports", "bbc sport"]) or "categories/sports.m3u" in source_url and any(k in meta_lower for k in ["uk", "sky", "tnt"]):
+        if any(k in meta_lower for k in ["champions", "laliga", "serie a", "bundesliga", "espn", "eurosport"]):
             return "6. Sport - Champions & European Leagues"
-        elif any(k in meta_lower for k in ["id", "indonesia"]):
-            return "4. Sport - Indonesia"
-        else:
-            return "7. Sport - Global & Other"
-            
-    return None
+        return "5. Sport - Premier League & UK"
+    elif any(k in meta_lower for k in ["champions", "europe", "laliga", "serie a", "bundesliga", "espn", "eurosport"]):
+        return "6. Sport - Champions & European Leagues"
+    elif any(k in meta_lower for k in ["spotv", "bein", "soccer", "mnc sports", "champions tv", "vidio", "nba", "sport", "olahraga", "bola"]):
+        return "4. Sport - Indonesia"
+    elif "categories/sports.m3u" in source_url:
+        return "7. Sport - Global & Other"
+    elif any(k in meta_lower for k in ["banjar", "duta", "kalsel", "kaltim", "kalteng", "kalbar", "jaktv", "jak tv", "atv", "malang", "tvri kalimantan", "tvri kalsel", "jambi", "jawa pos"]):
+        return "11. Lokal & Daerah (Kalimantan & Nusantara)"
+    elif any(k in meta_lower for k in ["cartoon", "nickelodeon", "disney", "dreamworks", "cbeebies", "kids"]):
+        return "10. Anak-anak (Kids)"
+    elif any(k in meta_lower for k in ["national geographic", "discovery", "animal planet", "history", "bbc earth", "food", "travel"]):
+        return "9. Dokumenter, Sains & Gaya Hidup (Documentary & Lifestyle)"
+    elif any(k in meta_lower for k in ["bioskop", "zee", "drama", "hallyu", "prambors", "dewa", "movie", "entertainment", "big movies"]):
+        return "8. Hiburan, Film & Musik (Entertainment & Movies)"
+    elif any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans tv", "trans7", "gtv", "mnc", "rtv", "net", "mdtv", "mentari", "btv", "inews", "tvri"]):
+        return "1. Nasional (Free-to-Air Umum)"
+    else:
+        return "1. Nasional (Free-to-Air Umum)"
 
-print("Mulai mengunduh dan memproses playlist...")
+print("Memperbarui dan menyaring playlist...")
 
 for source_url in SOURCE_URLS:
     print(f"Mengakses sumber: {source_url}")
     try:
         req_source = urllib.request.Request(
             source_url, 
-            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+            headers={"User-Agent": "Mozilla/5.0"}
         )
         with urllib.request.urlopen(req_source, timeout=10) as response:
             playlist_data = response.read().decode("utf-8")
@@ -106,10 +92,11 @@ for source_url in SOURCE_URLS:
                 i += 2
                 continue
                 
+            # Validasi link agar siaran tidak macet 0%
             is_active = False
             if url.startswith("http"):
                 if "categories/sports.m3u" in source_url or "countries/sa.m3u" in source_url:
-                    is_active = True  # Bypass ping untuk global/saudi agar cepat
+                    is_active = True
                 else:
                     try:
                         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -133,18 +120,14 @@ for source_url in SOURCE_URLS:
             i += 2
         else:
             i += 1
-    print(f"Berhasil menambahkan {added_count} channel dari sumber ini.")
+    print(f"Berhasil menambahkan {added_count} channel aktif.")
 
-# Susun urutan kategori akhir di file M3U
 final_output = ["#EXTM3U\n"]
-total_all = 0
 for cat in categorized_channels.keys():
     if categorized_channels[cat]:
         final_output.extend(categorized_channels[cat])
-        print(f"Kategori [{cat}]: {len(categorized_channels[cat])} channel")
-        total_all += len(categorized_channels[cat])
 
 with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
     f.writelines(final_output)
 
-print(f"\nSelesai! Total keseluruhan channel aktif: {total_all}")
+print("Selesai! Playlist siap digunakan.")
