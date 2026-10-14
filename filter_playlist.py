@@ -2,7 +2,6 @@ import urllib.request
 import urllib.error
 import re
 
-# 1. Ambil playlist publik (contoh: channel Indonesia dari IPTV-org)
 SOURCE_URL = "https://iptv-org.github.io/iptv/countries/id.m3u"
 OUTPUT_FILE = "master_active.m3u"
 
@@ -15,48 +14,87 @@ except Exception as e:
     exit(1)
 
 lines = playlist_data.splitlines()
-active_channels = []
 
-print("Memeriksa status keaktifan link (ini mungkin butuh beberapa saat)...")
+# Kamus untuk mengelompokkan kategori
+categorized_channels = {
+    "Nasional": [],
+    "Berita": [],
+    "Olah Raga": [],
+    "Religi": [],
+    "Entertainment & Lainnya": []
+}
+
+def detect_category(meta_line):
+    meta_lower = meta_line.lower()
+    
+    # Deteksi berdasarkan group-title atau kata kunci di metadata
+    if any(k in meta_lower for k in ["news", "berita", "cnn", "cnbc", "metro"]):
+        return "Berita"
+    elif any(k in meta_lower for k in ["sport", "sports", "olahraga", "bein", "eurosport", "tvriseven"]):
+        return "Olah Raga"
+    elif any(k in meta_lower for k in ["religi", "islam", "dakwah", "makkah", "rodja", "quran"]):
+        return "Religi"
+    elif any(k in meta_lower for k in ["nasional", "general", "rcti", "sCTV", "indosiar", "antv", "trans"]):
+        return "Nasional"
+    else:
+        return "Entertainment & Lainnya"
+
+print("Memeriksa keaktifan link dan menyusun ulang kategori...")
 
 i = 0
 while i < len(lines):
     line = lines[i].strip()
-    
-    # Cek jika baris adalah metadata #EXTINF
     if line.startswith("#EXTINF"):
         meta = line
         url = lines[i+1].strip() if i+1 < len(lines) else ""
         
-        # Validasi sederhana apakah URL bisa diakses
+        # Validasi keaktifan link
         is_active = False
         if url.startswith("http"):
             try:
-                # Menggunakan request dengan timeout agar tidak macet terlalu lama
                 req = urllib.request.Request(
                     url, 
                     headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
                 )
-                # Cukup gunakan method pembuka kecil atau head
                 with urllib.request.urlopen(req, timeout=3) as res:
                     if res.status < 400:
                         is_active = True
             except Exception:
                 is_active = False
         
-        # Jika aktif, masukkan ke daftar
         if is_active:
-            active_channels.append(f"{meta}\n{url}\n")
-            print(f"[AKTIF] {url}")
+            # Tentukan kategori dan perbarui tag group-title agar rapi di aplikasi IPTV
+            cat = detect_category(meta)
+            
+            # Ganti atau tambahkan group-title sesuai kategori yang diinginkan
+            if 'group-title="' in meta:
+                meta = re.sub(r'group-title="[^"]*"]', f'group-title="{cat}"', meta)
+            else:
+                meta = meta.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{cat}"')
+                
+            categorized_channels[cat].append(f"{meta}\n{url}\n")
+            print(f"[AKTIF - {cat}] {url}")
         else:
-            print(f"[MATI/DILEWATI] {url}")
+            print(f"[MATI] {url}")
             
         i += 2
     else:
         i += 1
 
-# 2. Simpan hasil saringan ke file master baru
-with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-    f.write("#EXTM3U\n" + "".join(active_channels))
+# Susun kembali urutan kategori ke dalam file final
+final_output = ["#EXTM3U\n"]
+preferred_order = ["Nasional", "Berita", "Olah Raga", "Religi", "Entertainment & Lainnya"]
 
-print(f"\nSelesai! Total channel aktif yang disimpan: {len(active_channels)}")
+for cat in preferred_order:
+    if categorized_channels[cat]:
+        # Tambahkan komentar pemisah kategori di dalam file M3U (opsional, dibaca rapi oleh sebagian player)
+        final_output.append(f"\n# -----------------------------------------\n")
+        final_output.append(f"# KATEGORI: {cat}\n")
+        final_output.append(f"# -----------------------------------------\n")
+        final_output.extend(categorized_channels[cat])
+
+# Simpan hasil akhir
+with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+    f.writelines(final_output)
+
+print("\nPlaylist berhasil disaring dan dikelompokkan ulang!")
