@@ -5,7 +5,7 @@ import re
 SOURCE_URL = "https://iptv-org.github.io/iptv/countries/id.m3u"
 OUTPUT_FILE = "master_active.m3u"
 
-print("Mengunduh playlist publik...")
+print("Mengunduh playlist...")
 try:
     response = urllib.request.urlopen(SOURCE_URL)
     playlist_data = response.read().decode("utf-8")
@@ -15,31 +15,43 @@ except Exception as e:
 
 lines = playlist_data.splitlines()
 
-# Kamus untuk mengelompokkan kategori
+# Kategori standar yang didukung rapi oleh aplikasi IPTV
 categorized_channels = {
     "Nasional": [],
-    "Berita": [],
-    "Olah Raga": [],
-    "Religi": [],
-    "Entertainment & Lainnya": []
+    "News": [],
+    "Sports": [],
+    "Religious": [],
+    "Entertainment": []
 }
 
 def detect_category(meta_line):
     meta_lower = meta_line.lower()
     
-    # Deteksi berdasarkan group-title atau kata kunci di metadata
-    if any(k in meta_lower for k in ["news", "berita", "cnn", "cnbc", "metro"]):
-        return "Berita"
-    elif any(k in meta_lower for k in ["sport", "sports", "olahraga", "bein", "eurosport", "tvriseven"]):
-        return "Olah Raga"
-    elif any(k in meta_lower for k in ["religi", "islam", "dakwah", "makkah", "rodja", "quran"]):
-        return "Religi"
-    elif any(k in meta_lower for k in ["nasional", "general", "rcti", "sCTV", "indosiar", "antv", "trans"]):
+    # Deteksi Religi / Islam / Dakwah
+    if any(k in meta_lower for k in ["rodja", "makkah", "religi", "islam", "quran", "surau", "muhammad", "tv 9", "tv9"]):
+        return "Religious"
+    # Deteksi Olahraga
+    elif any(k in meta_lower for k in ["sport", "sports", "olahraga", "bein", "tvriseven", "soccer", "bola"]):
+        return "Sports"
+    # Deteksi Berita
+    elif any(k in meta_lower for k in ["news", "berita", "cnn", "cnbc", "metro"]):
+        return "News"
+    # Deteksi Nasional / Daerah / Umum
+    elif any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans", "kompas", "rtv", "banjar", "banten", "jambi", "tvri", "inews", "gtv", "mentari", "moji"]):
         return "Nasional"
     else:
-        return "Entertainment & Lainnya"
+        return "Entertainment"
 
-print("Memeriksa keaktifan link dan menyusun ulang kategori...")
+# Pemetaan ke nama kategori yang umum di aplikasi
+category_mapping = {
+    "Nasional": "Nasional",
+    "News": "News",
+    "Sports": "Sports",
+    "Religious": "Religious",
+    "Entertainment": "Entertainment"
+}
+
+print("Memproses dan menyaring channel...")
 
 i = 0
 while i < len(lines):
@@ -54,7 +66,7 @@ while i < len(lines):
             try:
                 req = urllib.request.Request(
                     url, 
-                    headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+                    headers={"User-Agent": "Mozilla/5.0"}
                 )
                 with urllib.request.urlopen(req, timeout=3) as res:
                     if res.status < 400:
@@ -63,38 +75,28 @@ while i < len(lines):
                 is_active = False
         
         if is_active:
-            # Tentukan kategori dan perbarui tag group-title agar rapi di aplikasi IPTV
             cat = detect_category(meta)
+            target_cat = category_mapping[cat]
             
-            # Ganti atau tambahkan group-title sesuai kategori yang diinginkan
+            # Timpa total group-title agar sesuai kategori baru
             if 'group-title="' in meta:
-                meta = re.sub(r'group-title="[^"]*"]', f'group-title="{cat}"', meta)
+                meta = re.sub(r'group-title="[^"]*"', f'group-title="{target_cat}"', meta)
             else:
-                meta = meta.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{cat}"')
+                meta = meta.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{target_cat}"')
                 
             categorized_channels[cat].append(f"{meta}\n{url}\n")
-            print(f"[AKTIF - {cat}] {url}")
-        else:
-            print(f"[MATI] {url}")
-            
+        
         i += 2
     else:
         i += 1
 
-# Susun kembali urutan kategori ke dalam file final
+# Susun hasil akhir ke file M3U
 final_output = ["#EXTM3U\n"]
-preferred_order = ["Nasional", "Berita", "Olah Raga", "Religi", "Entertainment & Lainnya"]
-
-for cat in preferred_order:
+for cat in ["Nasional", "News", "Sports", "Religious", "Entertainment"]:
     if categorized_channels[cat]:
-        # Tambahkan komentar pemisah kategori di dalam file M3U (opsional, dibaca rapi oleh sebagian player)
-        final_output.append(f"\n# -----------------------------------------\n")
-        final_output.append(f"# KATEGORI: {cat}\n")
-        final_output.append(f"# -----------------------------------------\n")
         final_output.extend(categorized_channels[cat])
 
-# Simpan hasil akhir
 with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
     f.writelines(final_output)
 
-print("\nPlaylist berhasil disaring dan dikelompokkan ulang!")
+print("Penyortiran kategori selesai!")
