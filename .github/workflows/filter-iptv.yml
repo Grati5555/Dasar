@@ -1,15 +1,13 @@
 name: Filter IPTV Playlist
 
 on:
+  workflow_dispatch: # Tombol Run manual di tab Actions
   schedule:
-    - cron: '0 0 * * *' # Berjalan otomatis setiap hari jam 12 malam
-  workflow_dispatch: # Bisa dijalankan manual dari tab Actions di GitHub
+    - cron: '0 */2 * * *' # Otomatis berjalan setiap 2 jam sekali
 
 jobs:
   filter-playlist:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -23,8 +21,7 @@ jobs:
         run: python filter_playlist.py
 
       - name: Commit and Push Changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add master_active.m3u
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update and filter IPTV playlist" && git push)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-update and filter master_active.m3u"
+          file_pattern: master_active.m3u
