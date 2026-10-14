@@ -28,56 +28,44 @@ categorized_channels = {
 def detect_category(meta_line, source_url):
     meta_lower = meta_line.lower()
     
+    # 1. Khusus sumber Indihome: HANYA ambil yang masuk kategori Nasional, selebihnya abaikan!
+    if "indihometv.m3u" in source_url.lower():
+        if any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans tv", "trans7", "gtv", "mnc tv", "mnctv", "rtv", "net.", "net tv", "mdtv", "mentari", "btv", "inews"]):
+            return "1. Nasional (Free-to-Air Umum)"
+        else:
+            return None  # Abaikan semua channel non-nasional dari Indihome
+
+    # 2. Sumber Saudi Arabia khusus Religi
     if "countries/sa.m3u" in source_url:
         if any(k in meta_lower for k in ["quran", "sunnah", "makkah", "madinah", "saudi quran", "saudi sunnah"]):
             return "3. Religiuos (Islamic & General)"
         return None
 
-    # 1. Cek Kategori Religi
+    # 3. Deteksi untuk sumber lainnya (iptv-org id, sports, dll.)
     if any(k in meta_lower for k in ["rodja", "makkah", "madinah", "religi", "islam", "quran", "sunnah", "surau", "muhammad", "tv 9", "tv9", "aswaja", "al bahjah", "insan", "tvmu", "madaniah", "ahsan", "mta", "niaga"]):
         return "3. Religiuos (Islamic & General)"
-        
-    # 2. Cek Kategori Berita
-    elif any(k in meta_lower for k in ["metro", "tvone", "tv one", "cnn", "cnbc", "kompas", "beritasatu", "idtv"]):
+    elif any(k in meta_lower for k in ["metro tv", "tvone", "tv one", "cnn indonesia", "cnbc indonesia", "kompas tv", "beritasatu", "idtv"]):
         return "2. Berita (News)"
-        
-    # 3. Cek Sport UK / Premier League
     elif any(k in meta_lower for k in ["uk", "england", "premier league", "sky sports", "tnt sports", "bbc sport"]) or "categories/sports.m3u" in source_url and any(k in meta_lower for k in ["uk", "sky", "tnt"]):
         if any(k in meta_lower for k in ["champions", "laliga", "serie a", "bundesliga", "espn", "eurosport"]):
             return "6. Sport - Champions & European Leagues"
         return "5. Sport - Premier League & UK"
-        
-    # 4. Cek Sport Champions / Eropa
     elif any(k in meta_lower for k in ["champions", "europe", "laliga", "serie a", "bundesliga", "espn", "eurosport"]):
         return "6. Sport - Champions & European Leagues"
-        
-    # 5. Cek Sport Indonesia
     elif any(k in meta_lower for k in ["spotv", "bein", "soccer", "mnc sports", "champions tv", "vidio", "nba", "sport", "olahraga", "bola"]):
         return "4. Sport - Indonesia"
     elif "categories/sports.m3u" in source_url:
         return "7. Sport - Global & Other"
-        
-    # 6. Cek Lokal & Daerah
-    elif any(k in meta_lower for k in ["banjar", "duta", "kalsel", "kaltim", "kalteng", "kalbar", "jaktv", "jak tv", "atv", "malang", "tvri kalimantan", "tvri kalsel", "jambi", "jawa pos", "balikpapan", "bandung", "banten", "batam", "jtv", "kilisuci", "mbg", "padang", "pontv", "rri net", "stv", "tabalong"]):
+    elif any(k in meta_lower for k in ["tvri aceh", "tvri bali", "tvri bengkulu", "tvri jambi", "tvri lampung", "tvri papua", "tvri riau", "tvri sumatera", "tvri sulawesi", "tvri kalimantan", "tvri jawa", "tvri ntt", "tvri ntb", "tvri maluku", "tvri gorontalo", "banjar", "duta", "kalsel", "kaltim", "kalteng", "kalbar", "jaktv", "jak tv", "atv", "malang", "jawa pos", "balikpapan", "bandung", "banten", "batam", "jtv", "kilisuci", "mbg", "padang", "pontv", "rri net", "stv", "tabalong"]):
         return "11. Lokal & Daerah (Kalimantan & Nusantara)"
-        
-    # 7. Cek Anak-anak
     elif any(k in meta_lower for k in ["cartoon", "nickelodeon", "disney", "dreamworks", "cbeebies", "kids"]):
         return "10. Anak-anak (Kids)"
-        
-    # 8. Cek Dokumenter & Lifestyle
     elif any(k in meta_lower for k in ["national geographic", "discovery", "animal planet", "history", "bbc earth", "food", "travel"]):
         return "9. Dokumenter, Sains & Gaya Hidup (Documentary & Lifestyle)"
-        
-    # 9. Cek Hiburan & Film
     elif any(k in meta_lower for k in ["bioskop", "zee", "drama", "hallyu", "prambors", "dewa", "movie", "entertainment", "big movies"]):
         return "8. Hiburan, Film & Musik (Entertainment & Movies)"
-        
-    # 10. Cek Nasional (Harus spesifik, TIDAK BOLEH asal tangkap)
-    elif any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans tv", "trans7", "gtv", "mnc tv", "mnctv", "rtv", "net.", "net tv", "mdtv", "mentari", "btv", "inews", "tvri nasional", "tvri"]):
+    elif any(k in meta_lower for k in ["rcti", "sctv", "indosiar", "antv", "trans tv", "trans7", "gtv", "mnc tv", "mnctv", "rtv", "net.", "net tv", "mdtv", "mentari", "btv", "inews", "tvri nasional", "tvri hd"]):
         return "1. Nasional (Free-to-Air Umum)"
-        
-    # Jika channel tidak masuk kategori di atas (seperti Anime, Crunchyroll, dll.), abaikan/buang!
     else:
         return None
 
