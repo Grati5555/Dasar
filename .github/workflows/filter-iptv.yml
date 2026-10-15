@@ -3,7 +3,7 @@ name: Filter IPTV Playlist
 on:
   workflow_dispatch: # Tombol Run manual di tab Actions
   schedule:
-    - cron: '0 */2 * * *' # Otomatis berjalan setiap 2 jam sekali
+    - cron: '0 */1 * * *' # Otomatis berjalan setiap 2 jam sekali
 
 jobs:
   filter-playlist:
