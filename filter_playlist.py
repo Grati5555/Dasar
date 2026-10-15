@@ -2,7 +2,6 @@ import urllib.request
 import urllib.error
 import re
 
-# Sumber murni dari IPTV-org (Indonesia, Sports Global, dan Saudi Arabia untuk Religi)
 SOURCE_URLS = [
     "https://iptv-org.github.io/iptv/countries/id.m3u",
     "https://iptv-org.github.io/iptv/categories/sports.m3u",
@@ -11,7 +10,6 @@ SOURCE_URLS = [
 
 OUTPUT_FILE = "master_active.m3u"
 
-# Struktur kategori rapi sesuai permintaan
 categorized_channels = {
     "1. Nasional (Free-to-Air Umum)": [],
     "2. Berita (News)": [],
@@ -29,15 +27,14 @@ categorized_channels = {
 def detect_category(meta_line, source_url):
     meta_lower = meta_line.lower()
     
-    # Saring khusus channel Religi dari Saudi Arabia
     if "countries/sa.m3u" in source_url:
         if any(k in meta_lower for k in ["quran", "sunnah", "makkah", "madinah", "saudi quran", "saudi sunnah"]):
             return "3. Religiuos (Islamic & General)"
         return None
 
-    # Saring dari sumber Indonesia (id.m3u)
     if "countries/id.m3u" in source_url:
-        if any(k in meta_lower for k in ["rodja", "makkah", "madinah", "religi", "islam", "quran", "sunnah", "surau", "muhammad", "tv 9", "tv9", "aswaja", "al bahjah", "insan", "tvmu", "madaniah", "ahsan", "mta", "niaga"]):
+        # Ditambahkan kata kunci "wafa" dan "tarim" di sini
+        if any(k in meta_lower for k in ["wafa", "tarim", "rodja", "makkah", "madinah", "religi", "islam", "quran", "sunnah", "surau", "muhammad", "tv 9", "tv9", "aswaja", "al bahjah", "insan", "tvmu", "madaniah", "ahsan", "mta", "niaga"]):
             return "3. Religiuos (Islamic & General)"
         elif any(k in meta_lower for k in ["metro", "tvone", "tv one", "cnn", "cnbc", "kompas", "beritasatu", "idtv"]):
             return "2. Berita (News)"
@@ -56,7 +53,6 @@ def detect_category(meta_line, source_url):
         else:
             return "1. Nasional (Free-to-Air Umum)"
 
-    # Saring dari sumber Sport Global (sports.m3u)
     if "categories/sports.m3u" in source_url:
         if any(k in meta_lower for k in ["uk", "england", "premier league", "sky sports", "tnt sports", "bbc sport"]):
             return "5. Sport - Premier League & UK"
@@ -101,8 +97,9 @@ for source_url in SOURCE_URLS:
                 
             is_active = False
             if url.startswith("http"):
-                if "categories/sports.m3u" in source_url or "countries/sa.m3u" in source_url:
-                    is_active = True  # Bypass ping untuk global/saudi agar cepat
+                # Jika nama channel mengandung kata "wafa" atau "tarim", langsung bypass (anggap aktif) agar tidak terbuang karena timeout
+                if "categories/sports.m3u" in source_url or "countries/sa.m3u" in source_url or "wafa" in meta.lower() or "tarim" in meta.lower():
+                    is_active = True  
                 else:
                     try:
                         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -128,7 +125,6 @@ for source_url in SOURCE_URLS:
             i += 1
     print(f"Berhasil menambahkan {added_count} channel dari sumber ini.")
 
-# Simpan hasil akhir ke file master
 final_output = ["#EXTM3U\n"]
 total_all = 0
 for cat in categorized_channels.keys():
