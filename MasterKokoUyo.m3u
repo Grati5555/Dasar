@@ -113,7 +113,7 @@ https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/bcj3iscpd6/out/v1
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=http://vision.hoe.my.id/play?ids=1011&type=drm&token=apistech
+#KODIPROP:inputstream.adaptive.license_key=https://vision.mikrofast.web.id/license?id=1011
 https://d2xz2v5wuvgur6.cloudfront.net/out/v1/f224a4945f2f48e892fb896645a9af6b/index.mpd
 #EXTINF:-1 tvg-logo="https://akcdn.detik.net.id/community/media/visual/2019/10/12/7cecfd5c-c835-42ad-be15-cf47760674c3_169.png?w=1200" group-title="BRI LIGA 1 & LIGA 2 PEGADAIAN",TVRI SPORT FHD
 
