@@ -7,10 +7,42 @@ https://dl.dropboxusercontent.com/scl/fi/ywpljc2vvj4k654v2cx58/lv_0_202610011718
 https://dl.dropboxusercontent.com/scl/fi/ywpljc2vvj4k654v2cx58/lv_0_20261001171821.mp4?rlkey=dbt6gjtie6n88anc6ug1a33ag&st=a9d2bld1&dl=1
 #EXTINF:-1 tvg-id="" tvg-logo="https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyMTI3YWxxdDZpYzNiMHAyNXh1MWl1enBxeDl3bzB0bmRsem42OHYweCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/5xaOcLGwJiU6VzF7U3K/giphy.gif" group-title="PLAYLIST Test",KETIK DI CHROME/GOOGLE👆👆
 https://dl.dropboxusercontent.com/scl/fi/ywpljc2vvj4k654v2cx58/lv_0_20261001171821.mp4?rlkey=dbt6gjtie6n88anc6ug1a33ag&st=a9d2bld1&dl=1
-#EXTINF:-1 group-title="LIVE 20-OKT-26" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1xS1XqTKScrSYTKi5zHxwAMVa4AAac2Qbh4Bz7lODwU4Ppi9Yzlvcxd24&s=10",19.00||BHAYANGKARA VS PSIM
-https://live2.jorvakstreamcache.com/live/channel11.m3u8
-#EXTINF:-1 group-title="LIVE 20-OKT-26" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1xS1XqTKScrSYTKi5zHxwAMVa4AAac2Qbh4Bz7lODwU4Ppi9Yzlvcxd24&s=10",19.00||DEWA UNITED VS PERSIJAP
+#EXTINF:-1 group-title="LIVE 21-OKT-26" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG0lbsRcSVZdxcrOKwMEg_uTP0P6yREVebBTPVfUPfMC3AvEBA_PeuI0-K&s=10",15.30||BALI UNITED VS GARUDAYAKSA
+https://live2.jorvakstreamcache.com/live/channel24.m3u8
+#EXTINF:-1 group-title="LIVE 21-OKT-26" tvg-logo="https://theawayend.co/wp-content/uploads/2024/06/AFC-Challenge-League-banner.jpeg",16.30||KASUKA FC VS SHAN UNITED
+https://tg050gr3uomttgr31hct1gczdkc3pptwzc3jt.100ycdn.com/live1.quickscoreboardz.com/live/channel12/playlist.m3u8?wsSecret=1ae75a9e71a1c9b9d86663f97887b312&wsABSTime=1792125483&wsSession=9e08c1b38034baf63f366dae-179208228756874&wsIPSercert=dfa7a860ed6024e30bda647a52372756&wsBindIP=2&wsserid=19560480166232750
+#EXTINF:-1 group-title="LIVE 21-OKT-26" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG0lbsRcSVZdxcrOKwMEg_uTP0P6yREVebBTPVfUPfMC3AvEBA_PeuI0-K&s=10",19.00||PERSIJA JAKARTA VS AREMA FC
+https://live2.jorvakstreamcache.com/live/channel28.m3u8
+#EXTINF:-1 group-title="LIVE 21-OKT-26" tvg-logo="https://theawayend.co/wp-content/uploads/2024/06/AFC-Challenge-League-banner.jpeg",19.00||TAIWAN STELL VS BORNEO FC
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 
+https://hgmtv.com:19360/garudatvlivestreaming/1080p.m3u8
+#EXTINF:-1 group-title="LIVE 21-OKT-26" tvg-logo="https://theawayend.co/wp-content/uploads/2024/06/AFC-Challenge-League-banner.jpeg",19.30||HANG YUAN VS MANILLA DIGGER
+https://live2.jorvakstreamcache.com/live/channel18.m3u8
+#EXTINF:-1 group-title="LIVE 21-OKT-26" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZiZkSj518i8Xb94IYNahh50lJAbBLleySnwkURNqtFw&s=10",23.45||COMO 1907 VS MANCHESTER UNITED
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=69a5aa835a061ce64a630d1046727e40:d02feac8a999bd06bf4059bf33411749
+https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/rhf2dwosdt/out/v1/ee550d2a68d846c797e6ce4de2e8b76d/cenc.mpd
+#EXTINF:-1 group-title="LIVE 21-OKT-26" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZiZkSj518i8Xb94IYNahh50lJAbBLleySnwkURNqtFw&s=10",23.45||LILLE VS GALATASARAY
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.license_key=https://vision.mikrofast.web.id/license?id=124
+#EXTVLCOPT:http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
+https://d6m3sfa7e58z5.cloudfront.net/out/v1/a265695db5cb461095cbfefc02ad793b/index.mpd
+#EXTINF:-1 group-title="LIVE 22-OKT-26" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZiZkSj518i8Xb94IYNahh50lJAbBLleySnwkURNqtFw&s=10",02.00||REAL MADRID VS RB LEIPZIG
+https://live2.jorvakstreamcache.com/live/channel5.m3u8
+#EXTINF:-1 group-title="LIVE 22-OKT-26" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZiZkSj518i8Xb94IYNahh50lJAbBLleySnwkURNqtFw&s=10",02.00||ASTON VILLA VS VIKING
+https://live2.jorvakstreamcache.com/live/channel6.m3u8
+#EXTINF:-1 group-title="LIVE 22-OKT-26" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZiZkSj518i8Xb94IYNahh50lJAbBLleySnwkURNqtFw&s=10",02.00||CLUB BRUGGE VS RC LENS
 https://live2.jorvakstreamcache.com/live/channel19.m3u8
+#EXTINF:-1 group-title="LIVE 22-OKT-26" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZiZkSj518i8Xb94IYNahh50lJAbBLleySnwkURNqtFw&s=10",02.00||BAYERN MUNCHEN VS ARSENAL
+https://live2.jorvakstreamcache.com/live/channel1.m3u8
+#EXTINF:-1 group-title="LIVE 22-OKT-26" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZiZkSj518i8Xb94IYNahh50lJAbBLleySnwkURNqtFw&s=10",02.00||REAL BETIS VS FENEYOORD
+https://live2.jorvakstreamcache.com/live/channel17.m3u8
+#EXTINF:-1 group-title="LIVE 22-OKT-26" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZiZkSj518i8Xb94IYNahh50lJAbBLleySnwkURNqtFw&s=10",02.00||SPORTING CP VS LASK LINZ
+https://live2.jorvakstreamcache.com/live/channel18.m3u8
+#EXTINF:-1 group-title="LIVE 22-OKT-26" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZiZkSj518i8Xb94IYNahh50lJAbBLleySnwkURNqtFw&s=10",02.00||INTER MILAN VS SHAKTAR
+https://live2.jorvakstreamcache.com/live/channel11.m3u8
 #EXTINF:-1 group-title="AFC CHAMPIONS LEAGUE ELITE" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZvSzE_xRRy5RPoZZT-RgNc5iwMh9QGYeVhJh1-s9PEqgGehqvgAhbjbRm&s=10",Fancode 2
 https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/avqlywnuzx/out/v1/aefca6420f944a9482e117f315de535f/cenc.mpd
 #EXTINF:-1 group-title="AFC CHAMPIONS LEAGUE ELITE" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZvSzE_xRRy5RPoZZT-RgNc5iwMh9QGYeVhJh1-s9PEqgGehqvgAhbjbRm&s=10",RCTI HD
