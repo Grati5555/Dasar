@@ -5,6 +5,8 @@ http://122.248.43.242:1935/BALIKPAPANTV/_definst_/myStream/playlist.m3u8
 http://202.150.153.254:65500/bandungtvWEBSITE.m3u8
 #EXTINF:-1 tvg-id="BantenTV.id@SD" tvg-logo="https://i.imgur.com/tbtF40p.png" group-title="1. Nasional (Free-to-Air Umum)",Banten TV (720p) [Not 24/7]
 https://5bf7b725107e5.streamlock.net/bantentv/bantentv/playlist.m3u8
+#EXTINF:-1 tvg-id="BatamTV.id@SD" tvg-logo="https://i.imgur.com/lo7YXnW.png" group-title="1. Nasional (Free-to-Air Umum)",Batam TV (480p) [Not 24/7]
+http://122.248.43.242:1935/BATAMTV/_definst_/myStream/playlist.m3u8
 #EXTINF:-1 tvg-id="BMSTV.id@SD" tvg-logo="https://i.imgur.com/snMxng5.png" group-title="1. Nasional (Free-to-Air Umum)",BMS TV (720p) [Not 24/7]
 https://5bf7b725107e5.streamlock.net/bmstv/bmstv/playlist.m3u8
 #EXTINF:-1 tvg-id="BRTV.id@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/id/1/1f/Logo_BRTV.png" group-title="1. Nasional (Free-to-Air Umum)",BRTV (Indonesia) (720p)
@@ -17,6 +19,8 @@ https://5bf7b725107e5.streamlock.net/bungotv/bungotv/playlist.m3u8
 https://dhohotv.siar.us/dhohotv/live/playlist.m3u8
 #EXTINF:-1 tvg-id="GrooviaKanal.id@HD" tvg-logo="https://hosting.renderforestsites.com/35126779/1657983/media/e1b4737ec68d96b27f713c034543d472.png" group-title="1. Nasional (Free-to-Air Umum)",Groovia Kanal (576p)
 https://gist.githubusercontent.com/iptvonlinetv/02d209207082846012c15305f7471c55/raw/4439b54b986e696e6fcfba7a53380d85b27bbbc1/udp450.500.723:6050.m3u8
+#EXTINF:-1 tvg-id="JambiTV.id@SD" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/1/15/Jambi_TV.png" group-title="1. Nasional (Free-to-Air Umum)",Jambi TV
+https://jambitv.globaldigitalcore.com/hls/sah5tu7Eiveepohyieyie3OoteL2anga.m3u8
 #EXTINF:-1 tvg-id="JawaPosTV.id@Jakarta" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Jawa_Pos_TV_2024.svg/960px-Jawa_Pos_TV_2024.svg.png" group-title="1. Nasional (Free-to-Air Umum)",Jawa Pos TV Jakarta (720p)
 http://122.248.43.242:1935/JAWAPOSTVJKT/_definst_/myStream/playlist.m3u8
 #EXTINF:-1 tvg-id="JTV.id@SD" tvg-logo="https://i.imgur.com/mIDWIQk.png" group-title="1. Nasional (Free-to-Air Umum)",JTV (720p)
@@ -33,6 +37,8 @@ https://stream.convergen.co/mbg_stream/smil:mbStream.smil/playlist.m3u8
 http://122.248.43.242:1935/PADANGTV/_definst_/myStream/playlist.m3u8
 #EXTINF:-1 tvg-id="PONTV.id@SD" tvg-logo="https://i.imgur.com/P5erWzm.png" group-title="1. Nasional (Free-to-Air Umum)",PONTV (720p)
 http://122.248.43.242:1935/PONTV/_definst_/myStream/playlist.m3u8
+#EXTINF:-1 tvg-id="RiauTV.id@SD" tvg-logo="https://i.imgur.com/1g8FtJi.png" group-title="1. Nasional (Free-to-Air Umum)",Riau TV (1080p) [Not 24/7]
+http://122.248.43.242:1935/RIAUTV/_definst_/myStream/playlist.m3u8
 #EXTINF:-1 tvg-id="RRINet.id@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/RRI_NET_2023.svg/960px-RRI_NET_2023.svg.png" group-title="1. Nasional (Free-to-Air Umum)",RRI Net (1080p)
 https://private-streaming.rri.go.id/memfs/6f77c7b5-feb2-4935-9f89-e7e9fca0a54a_output_0.m3u8
 #EXTINF:-1 tvg-id="SampitTV.id@SD" tvg-logo="https://i.imgur.com/8cFJa8G.png" group-title="1. Nasional (Free-to-Air Umum)",Sampit TV (720p) [Not 24/7]
@@ -127,6 +133,8 @@ https://pull.daaiplus.com/live-DAAIPLUS/live-DAAIPLUS_HD.m3u8
 https://b.webcache.maxindo.net.id/dhamma/dhamma.m3u8
 #EXTINF:-1 tvg-id="DMITV.id@SD" tvg-logo="https://static.promediateknologi.id/promedia/network/1167/desktop/images/logo.png" group-title="3. Religiuos (Islamic & General)",DMI TV (576i)
 https://tvstreamcast.com/tawaftv.m3u8
+#EXTINF:-1 tvg-id="FajarTV.id@SD" tvg-logo="https://i.imgur.com/mkuXxRK.png" group-title="3. Religiuos (Islamic & General)",Fajar TV (720p) [Not 24/7]
+http://122.248.43.242:1935/FAJARTV/_definst_/myStream/playlist.m3u8
 #EXTINF:-1 tvg-id="LingkarTV.id@SD" tvg-logo="https://lingkartv.com/assets/img/logo-square.png" group-title="3. Religiuos (Islamic & General)",Lingkar TV
 https://lingkartv.my.id/hls/lingkartv.m3u8
 #EXTINF:-1 tvg-id="MadaniTV.id@SD" tvg-logo="https://i.imgur.com/8aonQ0v.png" group-title="3. Religiuos (Islamic & General)",Madani TV (720p)
@@ -313,10 +321,10 @@ http://88.212.15.17/live/test_ctsport_25p/playlist.m3u8
 https://jmp2.uk/plu-64b67f0424ade50008a3be17.m3u8
 #EXTINF:-1 tvg-id="DAZNHeldinnenxPlutoTV.de@DACH" tvg-logo="https://images.pluto.tv/channels/64afe50c5dc16600087f3227/colorLogoPNG.png" group-title="4. Sport - Indonesia",DAZN Heldinnen x Pluto TV
 https://jmp2.uk/plu-64afe50c5dc16600087f3227.m3u8
-#EXTINF:-1 tvg-id="DDSports.in@HD" tvg-logo="https://dtil.tmsimg.com/assets/s158255_ld_h15_aa.png?lock=720x540" group-title="4. Sport - Indonesia",DD Sports (720p)
-https://mumbai-edge.smartplaytv.in/DDSportsHD/index.m3u8
-#EXTINF:-1 tvg-id="DDSports.in@SD" tvg-logo="https://dtil.tmsimg.com/assets/s158255_ld_h15_aa.png?lock=720x540" group-title="4. Sport - Indonesia",DD Sports SD (1080p)
+#EXTINF:-1 tvg-id="DDSports.in@SD" tvg-logo="https://dtil.tmsimg.com/assets/s158255_ld_h15_aa.png?lock=720x540" group-title="4. Sport - Indonesia",DD Sports (1080p)
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/b17adfe543354fdd8d189b110617cddd/index.m3u8
+#EXTINF:-1 tvg-id="DDSports.in@HD" tvg-logo="https://dtil.tmsimg.com/assets/s158255_ld_h15_aa.png?lock=720x540" group-title="4. Sport - Indonesia",DD Sports HD (720p)
+https://mumbai-edge.smartplaytv.in/DDSportsHD/index.m3u8
 #EXTINF:-1 tvg-id="DeportesTVC.hn@SD" tvg-logo="https://i.imgur.com/Y1t8xkL.png" group-title="4. Sport - Indonesia",Deportes TVC (1080p)
 http://162.19.255.233:8080/play/UNbAl57p9hXZClOu56FCTYXmD-MOS3u5IUkeXPpBt80/m3u8
 #EXTINF:-1 tvg-id="DeporTV.ar@SD" tvg-logo="https://i.imgur.com/THk9ARS.png" group-title="4. Sport - Indonesia",DeporTV (1080p)
@@ -409,8 +417,6 @@ http://stream3.cinerama.uz/1010/tracks-v1a1/mono.m3u8
 http://190.61.90.17:40000/play/a03v/index.m3u8
 #EXTINF:-1 tvg-id="GamePlus.ca@SD" tvg-logo="https://i.imgur.com/Lj69WbR.png" group-title="4. Sport - Indonesia",Game+ (720p)
 https://a-cdn.klowdtv.com/live2/fntsy_720p/playlist.m3u8
-#EXTINF:-1 tvg-id="geFast.br@SD" tvg-logo="https://i.ibb.co/WGXHDnF/logo-ge-fast.png" group-title="4. Sport - Indonesia",ge Fast (1080p)
-https://amg00716-globo-amg00716c1-tcl-br-9495.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="GEMFit.tr@SD" tvg-logo="https://i.imgur.com/7FQxaII.png" group-title="4. Sport - Indonesia",GEM Fit
 https://ca-rt.onetv.app/gemfit/index-0.m3u8?token=onetv202
 #EXTINF:-1 tvg-id="GEMSport.tr@SD" tvg-logo="https://www.gemgroup.tv/assets/images/channels/icon_34.png" group-title="4. Sport - Indonesia",GEM Sport
@@ -713,6 +719,8 @@ https://st2.mediabay.tv/KG_KTRK-Sport/index.m3u8
 http://88.212.15.17/live/test_rtvs_sport_hevc/playlist.m3u8
 #EXTINF:-1 tvg-id="Sport.uz@SD" tvg-logo="https://i.imgur.com/2WJE9CM.png" group-title="4. Sport - Indonesia",Sport (Uzbekistan)
 https://stream8.cinerama.uz/1004/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-id="SportExtra.ro@SD" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/f/fa/Sport_Extra_horizontal.svg/revision/latest/scale-to-width-down/1000?cb=20220425110755" group-title="4. Sport - Indonesia",Sport Extra
+https://tvextra-hls.b-cdn.net/sportextra/sportextra.m3u8
 #EXTINF:-1 tvg-id="SportTV.by@SD" tvg-logo="https://www.beltelecom.by/sites/default/files/styles/200200/public/tv-channels/2025-10/sporttv.png" group-title="4. Sport - Indonesia",Sport TV (1080p)
 http://178.124.179.122:8080/SportTV/mpegts
 #EXTINF:-1 tvg-id="SportPlusQazaqstan.kz@SD" tvg-logo="https://i.imgur.com/vIV7x6n.png" group-title="4. Sport - Indonesia",Sport+ Qazaqstan (1080p)
@@ -967,7 +975,7 @@ https://d3b6q2ou5kp8ke.cloudfront.net/ESPNTheOcho.m3u8
 http://181.78.197.59:8000/play/a07z/index.m3u8
 #EXTINF:-1 tvg-id="ESPN.us@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ESPN_wordmark.svg/960px-ESPN_wordmark.svg.png" group-title="6. Sport - Champions & European Leagues",ESPN (United States) (432p)
 http://tvsen7.aynascope.net/espn/index.m3u8
-#EXTINF:-1 tvg-id="ESPN.us@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ESPN_wordmark.svg/960px-ESPN_wordmark.svg.png" group-title="6. Sport - Champions & European Leagues",ESPN (United States) HD (720p)
+#EXTINF:-1 tvg-id="ESPN.us@HD" tvg-logo="https://imgx.fubo.tv/station_logos/espn-hd_c.png" group-title="6. Sport - Champions & European Leagues",ESPN (United States) HD (720p)
 http://85.237.89.160:9590/usa-s/ESPN-HD/index.m3u8
 #EXTINF:-1 tvg-id="ESPNDeportes.us@HD" tvg-logo="https://imgx.fubo.tv/station_logos/espn-hd-deportes_c.png" group-title="6. Sport - Champions & European Leagues",ESPN Deportes HD (720p)
 http://168.228.44.241:9998/play/a0dz/index.m3u8
@@ -1013,6 +1021,8 @@ https://dutatv.siar.us/dutatv/live/playlist.m3u8
 https://hgmtv.com:19360/garudatvlivestreaming/garudatvlivestreaming.m3u8
 #EXTINF:-1 tvg-id="JogjaIstimewaTV.id@SD" tvg-logo="https://i.imgur.com/VEqQfTu.png" group-title="11. Lokal & Daerah (Kalimantan & Nusantara)",Jogja Istimewa TV (720p)
 http://103.255.15.222:1935/tv/jitv_720p/playlist.m3u8
+#EXTINF:-1 tvg-id="JogjaTV.id@SD" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/4/40/Jogjatvnew.png" group-title="11. Lokal & Daerah (Kalimantan & Nusantara)",Jogja TV (720p) [Not 24/7]
+https://stream.jogjatv.co.id/jtvlive/stream/index.m3u8
 #EXTINF:-1 tvg-id="JTV.id@Malang" tvg-logo="https://i.imgur.com/mIDWIQk.png" group-title="11. Lokal & Daerah (Kalimantan & Nusantara)",JTV Malang
 http://122.248.43.242:1935/JTVMALANG/_definst_/myStream/playlist.m3u8
 #EXTINF:-1 tvg-id="KawanuaTV.id@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/5f/Logo_kawanua_tv.png" group-title="11. Lokal & Daerah (Kalimantan & Nusantara)",Kawanua TV (720p)
