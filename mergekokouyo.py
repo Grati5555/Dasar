@@ -4,7 +4,7 @@ import re
 # URL Google Drive sumber mentah
 SOURCE_URL = "https://drive.google.com/uc?id=11SCMxGrXt4ECr1N0PXqtu26zSNYkKEYm"
 
-# Daftar kategori utama yang selalu dipertahankan
+# Daftar kategori utama yang diizinkan (KOKOUYO dihapus agar tidak meloloskan "PLAYLIST KOKOUYO")
 ALLOWED_GROUPS = [
     "CHAMPIONS LEAGUE",
     "LOKAL",
@@ -13,9 +13,13 @@ ALLOWED_GROUPS = [
     "LIVE FEED SPORT",
     "UEFA NATIONS LEAGUE",
     "BRI LIGA 1",
-    "PREMIER LEAGUE",
-    "KOKOUYO",
-    "PILIHAN KOKOUYO"
+    "PREMIER LEAGUE"
+]
+
+# Daftar kategori atau teks yang WAJIB DIBUANG / DIKELUARKAN total
+EXCLUDED_GROUPS = [
+    "PLAYLIST KOKOUYO",
+    "KOKOUYO"
 ]
 
 def clean_text(text):
@@ -38,7 +42,7 @@ def generate_playlist():
 
     lines = content.splitlines()
     
-    # 1. Langkah Pertama: Scan file sumber untuk mendeteksi semua kategori "LIVE [Tanggal]" yang aktif/ada
+    # Scan file sumber untuk mendeteksi semua kategori "LIVE [Tanggal]" yang aktif/ada
     active_live_dates = set()
     date_pattern = re.compile(r'group-title="([^"]*LIVE\s+\d{2}-[A-Z]{3}-\d{2}[^"]*)"', re.IGNORECASE)
     
@@ -46,22 +50,37 @@ def generate_playlist():
         if line.startswith("#EXTINF"):
             match = date_pattern.search(line)
             if match:
-                active_live_dates.add(match.group(1).upper())
+                group_name = match.group(1).upper()
+                # Pastikan tanggal live tidak mengandung kata yang diblokir
+                if not any(ex in group_name for ex in EXCLUDED_GROUPS):
+                    active_live_dates.add(group_name)
 
-    print(f"Kategori Live Tanggal yang Aktif Ditemukan di Sumber: {list(active_live_dates)}")
-
-    # Gabungkan kategori utama dengan kategori live tanggal yang aktif di sumber
     current_allowed_groups = ALLOWED_GROUPS + list(active_live_dates)
 
-    # 2. Langkah Kedua: Lakukan proses filter dan pembersihan teks
     filtered_lines = ["#EXTM3U"]
     i = 0
     while i < len(lines):
         line = lines[i]
         
         if line.startswith("#EXTINF"):
-            matched = False
             upper_line = line.upper()
+            
+            # 1. Cek apakah baris ini masuk dalam daftar yang HARUS DIKELUARKAN (Blokir)
+            is_excluded = False
+            for ex in EXCLUDED_GROUPS:
+                if ex in upper_line:
+                    is_excluded = True
+                    break
+            
+            if is_excluded:
+                # Lewati baris EXTINF ini beserta baris opsi/stream di bawahnya
+                i += 1
+                while i < len(lines) and (lines[i].startswith("#") and not lines[i].startswith("#EXTINF")):
+                    i += 1
+                continue
+
+            # 2. Cek apakah masuk dalam kategori yang DIINGINKAN
+            matched = False
             for group in current_allowed_groups:
                 if group in upper_line:
                     matched = True
@@ -82,7 +101,7 @@ def generate_playlist():
     output_filename = "MasterKokoUyo.m3u"
     with open(output_filename, "w", encoding="utf-8") as f:
         f.write("\n".join(filtered_lines))
-    print(f"Playlist berhasil diperbarui! Kategori live tanggal yang kedaluwarsa telah otomatis dihapus.")
+    print(f"Playlist berhasil diperbarui! Kategori PLAYLIST KOKOUYO berhasil dibuang.")
 
 if __name__ == "__main__":
     generate_playlist()
