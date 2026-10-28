@@ -13,6 +13,10 @@ https://tg0e1gr4ugmtwgczdrpbufa3unmmcpf5gkce.100ycdn.com/live1.quickscoreboardz.
 https://tg0e1gr4ugmtwgczdrpbufa5demmcpf5gkce.100ycdn.com/live1.quickscoreboardz.com/live/channel76/playlist.m3u8?wsSecret=d9ec09906a0f89455b5983cdb49ec8fa&wsABSTime=1792912033&wsSession=58b550e01da2fc08e843c601-179286883677072&wsIPSercert=690656f99094be74e16cb34d89341360&wsBindIP=2&wsserid=1168311491940439020
 #EXTINF:-1 group-title="AFC CHAMPIONS LEAGUE ELITE" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTruU4vKRZ0_Ac2LlhGqU9ho5x8BbHMpiLYrJk0oTY6xURJaiXb8D61gTY&s=10",LANCARTV FEED
 https://raw.githubusercontent.com/vannyruru-ui/KokoUyo06/refs/heads/main/Global
+#EXTINF:-1 group-title="AFC CHAMPIONS LEAGUE ELITE" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTruU4vKRZ0_Ac2LlhGqU9ho5x8BbHMpiLYrJk0oTY6xURJaiXb8D61gTY&s=10",R+ FEED
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://embed.rctiplus.com/live/rcti/sindonews
+https://sw.run/CAMPWIKI_RCTI
 #EXTINF:-1 group-title="AFC CHAMPIONS LEAGUE ELITE" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTruU4vKRZ0_Ac2LlhGqU9ho5x8BbHMpiLYrJk0oTY6xURJaiXb8D61gTY&s=10",Soccer Channel 
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
