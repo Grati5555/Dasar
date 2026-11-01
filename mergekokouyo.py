@@ -2,18 +2,24 @@ import urllib.request
 import re
 
 # URL Google Drive sumber mentah
-SOURCE_URL = "https://drive.google.com/uc?id=11SCMxGrXt4ECr1N0PXqtu26zSNYkKEYm"
+SOURCE_URL = "https://raw.githubusercontent.com/karya-media/tv/refs/heads/main/data/master/all.m3u"
 
 # Daftar kategori utama yang diizinkan (KOKOUYO dihapus agar tidak meloloskan "PLAYLIST KOKOUYO")
 ALLOWED_GROUPS = [
     "CHAMPIONS LEAGUE",
-    "LOKAL",
+    "KOKO LOKAL",
     "SPORTS",
     "OLAHRAGA",
     "LIVE FEED SPORT",
     "UEFA NATIONS LEAGUE",
     "BRI LIGA 1",
     "PREMIER LEAGUE"
+    "KOKO TV"
+    "LIVE EVENT 1"
+    "LIVE EVENT 2"
+    "LIVE EVENT 3"
+    "LIVE EVENT 4"
+    "LIVE EVENT 5"
 ]
 
 # Daftar kategori atau teks yang WAJIB DIBUANG / DIKELUARKAN total
