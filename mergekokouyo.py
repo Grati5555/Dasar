@@ -2,7 +2,7 @@ import urllib.request
 import re
 
 # URL Google Drive sumber mentah
-SOURCE_URL = "https://raw.githubusercontent.com/karya-media/tv/refs/heads/main/data/master/all.m3u"
+SOURCE_URL = "https://raw.githubusercontent.com/vannyruru-ui/KokoUyo06/refs/heads/main/Kokotv.m3u"
 
 # Daftar kategori utama yang diizinkan (KOKOUYO dihapus agar tidak meloloskan "PLAYLIST KOKOUYO")
 ALLOWED_GROUPS = [
