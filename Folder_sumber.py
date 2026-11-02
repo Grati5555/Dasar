@@ -3,10 +3,39 @@ import concurrent.futures
 import requests
 
 # Konfigurasi Direktori & File
-FOLDER_SUMBER = "Sumber_PL"          # Folder sumber tempat file-file .m3u diletakkan
+FOLDER_SUMBER = "Sumber_PL"          # Folder tempat menyimpan file-file m3u sumber
 OUTPUT_FILE = "Sumber_PL.m3u"        # File master hasil gabungan
+FILE_DAFTAR_LINK = "daftar_link.txt" # File berisi daftar link mentah sumber .m3u
 TIMEOUT_DETIK = 5                    # Batas waktu pengecekan link (timeout)
-MAKS_WORKERS = 20                    # Jumlah thread paralel untuk mempercepat pengecekan
+MAKS_WORKERS = 20                    # Jumlah thread paralel untuk pengecekan
+
+def download_sumber_m3u():
+    """Fungsi untuk mengunduh otomatis file .m3u dari daftar link."""
+    if not os.path.exists(FOLDER_SUMBER):
+        os.makedirs(FOLDER_SUMBER)
+        
+    if not os.path.exists(FILE_DAFTAR_LINK):
+        print(f"File '{FILE_DAFTAR_LINK}' tidak ditemukan. Melewati tahap download otomatis.")
+        return
+
+    print("Memulai auto-update (download) file sumber .m3u...")
+    with open(FILE_DAFTAR_LINK, "r", encoding="utf-8") as f:
+        links = [line.strip() for line in f if line.strip() and not line.startswith("#")]
+
+    for index, url in enumerate(links, start=1):
+        try:
+            print(f"Mengunduh sumber {index}: {url}")
+            response = requests.get(url, timeout=15)
+            if response.status_code == 200:
+                # Beri nama file otomatis berdasarkan urutan atau ekstrak dari URL
+                nama_file = f"sumber_{index}.m3u"
+                path_tujuan = os.path.join(FOLDER_SUMBER, nama_file)
+                with open(path_tujuan, "w", encoding="utf-8") as f_out:
+                    f_out.write(response.text)
+            else:
+                print(f"Gagal mendownload {url} (Status: {response.status_code})")
+        except Exception as e:
+            print(f"Error mendownload {url}: {e}")
 
 def cek_link(url):
     """Fungsi untuk memeriksa apakah link streaming aktif."""
@@ -23,13 +52,14 @@ def cek_link(url):
         return False
 
 def proses_playlist():
-    # Pastikan folder sumber ada
+    # 1. Download file-file sumber terlebih dahulu secara otomatis
+    download_sumber_m3u()
+
     if not os.path.exists(FOLDER_SUMBER):
-        os.makedirs(FOLDER_SUMBER)
-        print(f"Folder '{FOLDER_SUMBER}' dibuat. Silakan masukkan file-file .m3u ke dalam folder tersebut!")
+        print(f"Folder '{FOLDER_SUMBER}' tidak ditemukan!")
         return
 
-    print(f"Mulai membaca file .m3u dari folder '{FOLDER_SUMBER}'...")
+    print(f"\nMulai membaca file .m3u dari folder '{FOLDER_SUMBER}'...")
     
     semua_entri = []
     header_pertama = "#EXTM3U\n"
