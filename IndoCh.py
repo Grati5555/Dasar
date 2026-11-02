@@ -4,12 +4,13 @@ import urllib.request
 
 SOURCES_FILE = "sources.txt"
 OUTPUT_DIR = "Sumber Indo"
+SELECT_FILE = "select_ch.txt"
+CUSTOM_PLAYLIST = "PlaylistINDOpilihan.m3u"
 
 def parse_and_split_m3u():
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
 
-    # 1. Baca daftar link sumber dari file sources.txt
     if not os.path.exists(SOURCES_FILE):
         print(f"File {SOURCES_FILE} tidak ditemukan!")
         return
@@ -23,7 +24,6 @@ def parse_and_split_m3u():
 
     channels = {}
 
-    # 2. Loop semua link sumber yang didaftarkan
     for url_idx, source_url in enumerate(source_urls, 1):
         print(f"Mengambil data dari Sumber ke-{url_idx}: {source_url}")
         req = urllib.request.Request(source_url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -41,7 +41,6 @@ def parse_and_split_m3u():
             if line.startswith("#EXTINF:"):
                 extinf_line = line
                 
-                # Bersihkan nama channel
                 match = re.search(r',([^,]+)$', extinf_line)
                 raw_name = match.group(1).strip() if match else "Unknown"
                 clean_name = re.sub(r'\.\d+[A-Z]+$', '', raw_name)
@@ -49,7 +48,6 @@ def parse_and_split_m3u():
                 if not safe_name:
                     safe_name = "Unknown"
 
-                # Kumpulkan blok channel (termasuk #KODIPROP dan URL/backup)
                 block_lines = [extinf_line]
                 i += 1
                 
@@ -62,13 +60,12 @@ def parse_and_split_m3u():
                         block_lines.append(next_line)
                     i += 1
 
-                # Gabungkan link jika channel dengan nama yang sama ditemukan di sumber berbeda
                 if safe_name not in channels:
                     channels[safe_name] = []
                 channels[safe_name].append(block_lines)
             i += 1
 
-    # 3. Simpan ke file M3U terpisah per channel (menggabungkan backup dari semua sumber)
+    # 1. Simpan file M3U terpisah per channel di folder Sumber Indo
     for channel_name, entries in channels.items():
         file_path = os.path.join(OUTPUT_DIR, f"{channel_name}.m3u")
         with open(file_path, "w", encoding="utf-8") as f:
@@ -76,7 +73,23 @@ def parse_and_split_m3u():
             for block in entries:
                 for bline in block:
                     f.write(f"{bline}\n")
-        print(f"Berhasil memperbarui: {channel_name}.m3u")
+
+    # 2. Buat playlist gabungan khusus berdasarkan select_ch.txt
+    if os.path.exists(SELECT_FILE):
+        with open(SELECT_FILE, "r", encoding="utf-8") as f:
+            selected_names = [line.strip() for line in f if line.strip() and not line.startswith("#")]
+        
+        if selected_names:
+            with open(CUSTOM_PLAYLIST, "w", encoding="utf-8") as f:
+                f.write("#EXTM3U\n")
+                for name in selected_names:
+                    safe_target = re.sub(r'[\\/*?:"<>|]', "", name).strip().replace(" ", "_")
+                    if safe_target in channels:
+                        for block in channels[safe_target]:
+                            for bline in block:
+                                f.write(f"{bline}\n")
+                        print(f"Menambahkan ke playlist pilihan: {name}")
+            print(f"Berhasil memperbarui playlist custom: {CUSTOM_PLAYLIST}")
 
 if __name__ == "__main__":
     parse_and_split_m3u()
