@@ -26,5 +26,5 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add "Sumber Indo/" sources.txt
-          git diff --quiet && git diff --cached --quiet || (git commit -m "Auto-update channel dari multi-sumber [skip ci]" && git push)
+          git add "Sumber Indo/" sources.txt select_ch.txt PlaylistINDOpilihan.m3u
+          git diff --quiet && git diff --cached --quiet || (git commit -m "Auto-update playlist pilihan [skip ci]" && git push)
