@@ -1,12 +1,11 @@
-name: Auto Merge and Check IPTV
+name: Auto Merge and Check Sumber_PL
 
 on:
-  push:
-    branches:
-      - main
   schedule:
-    - cron: '0 */6 * * *'  # Berjalan otomatis setiap 6 jam sekali
-  workflow_dispatch:      # Bisa dijalankan manual lewat tab Actions di GitHub
+    # Berjalan otomatis setiap 6 jam sekali (bisa diubah sesuai kebutuhan)
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    # Memungkinkan tombol Run manual di tab Actions GitHub
 
 jobs:
   build:
@@ -24,12 +23,12 @@ jobs:
         run: |
           pip install requests
 
-      - name: Run Merge Script
+      - name: Run Python Merge Script
         run: python Folder_sumber.py
 
       - name: Commit and Push Master Playlist
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add master_playlist.m3u
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update master_playlist.m3u (Checked & Merged)" && git push)
+          git add Sumber_PL.m3u
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update Sumber_PL.m3u via GitHub Actions" && git push)
