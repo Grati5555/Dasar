@@ -1,11 +1,11 @@
-name: Auto Merge and Check Sumber_PL
+name: Auto Update and Merge Sumber_PL
 
 on:
   schedule:
-    # Berjalan otomatis setiap 6 jam sekali (bisa diubah sesuai kebutuhan)
+    # Berjalan otomatis setiap 6 jam sekali
     - cron: '0 */6 * * *'
   workflow_dispatch:
-    # Memungkinkan tombol Run manual di tab Actions GitHub
+    # Tombol run manual di GitHub
 
 jobs:
   build:
@@ -23,12 +23,12 @@ jobs:
         run: |
           pip install requests
 
-      - name: Run Python Merge Script
+      - name: Run Python Auto-Update & Merge Script
         run: python Folder_sumber.py
 
-      - name: Commit and Push Master Playlist
+      - name: Commit and Push Updates
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add Sumber_PL.m3u
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update Sumber_PL.m3u via GitHub Actions" && git push)
+          git add Sumber_PL/ Sumber_PL.m3u
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update source m3u and Sumber_PL.m3u" && git push)
