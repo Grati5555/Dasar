@@ -3,10 +3,10 @@ import concurrent.futures
 import requests
 
 # Konfigurasi Direktori & File
-FOLDER_SUMBER = "Sumber_PL"           # Folder khusus tempat meletakkan file-file .m3u sumber
-OUTPUT_FILE = "master_playlist.m3u"  # Hasil file master gabungan
-TIMEOUT_DETIK = 5                # Batas waktu pengecekan link (timeout)
-MAKS_WORKERS = 20                # Jumlah thread paralel untuk mempercepat pengecekan
+FOLDER_SUMBER = "Sumber_PL"          # Folder sumber tempat file-file .m3u diletakkan
+OUTPUT_FILE = "Sumber_PL.m3u"        # File master hasil gabungan
+TIMEOUT_DETIK = 5                    # Batas waktu pengecekan link (timeout)
+MAKS_WORKERS = 20                    # Jumlah thread paralel untuk mempercepat pengecekan
 
 def cek_link(url):
     """Fungsi untuk memeriksa apakah link streaming aktif."""
@@ -34,7 +34,6 @@ def proses_playlist():
     semua_entri = []
     header_pertama = "#EXTM3U\n"
     
-    # Baca semua file .m3u di dalam folder sumber
     daftar_file = sorted(os.listdir(FOLDER_SUMBER))
     file_m3u_ditemukan = [f for f in daftar_file if f.endswith(".m3u")]
     
@@ -65,7 +64,6 @@ def proses_playlist():
 
     print(f"\nTotal channel ditemukan: {len(semua_entri)}. Memulai pengecekan link aktif...")
 
-    # Filter link aktif menggunakan Multi-threading
     def verifikasi_item(item):
         metadata, url = item
         if cek_link(url):
@@ -78,7 +76,6 @@ def proses_playlist():
 
     print(f"\nLink aktif tersisa: {len(channel_aktif)} dari {len(semua_entri)} channel.")
 
-    # Tulis ke file master output
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f_out:
         f_out.write(header_pertama)
         for metadata, url in channel_aktif:
