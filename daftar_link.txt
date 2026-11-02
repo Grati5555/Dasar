@@ -1,0 +1,3 @@
+https://raw.githubusercontent.com/username/repo/main/file_pertama.m3u
+https://example.com/jalur/file_kedua.m3u
+https://drive.google.com/uc?id=CONTOH_ID_GOOGLE_DRIVE
