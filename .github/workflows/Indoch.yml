@@ -2,7 +2,7 @@ name: Auto Update IndoCh
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '*/20 * * * *'  # Berjalan otomatis setiap 15 menit sekali
   workflow_dispatch:
 
 jobs:
@@ -27,5 +27,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add "Sumber Indo/" "Sumber perKategori/" PlaylistINDOpilihan.m3u
-          git commit -m "Auto-update kategori dan playlist pilihan [skip ci]" || exit 0
+          git commit -m "Real-time auto-update playlist & kategori [skip ci]" || exit 0
           git push
