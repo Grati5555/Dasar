@@ -1,0 +1,5 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="Nusantara.TV.id" tvg-name="Nusantara TV" tvg-logo="https://mimipipi22.github.io/logo/nasional/nusantaratv.jpg" group-title="INDONESIA TV", 36. NUSANTARA TV (FEED)
+https://nusantaratv.siar.us/nusantaratv/live/playlist.m3u8
+#======================================================== JTV / JAWAPOST TV ====================================================================
+#EXTVLCOPT:http-user-agent=ExoPlayer/2.19.1 (Linux;Android 15.0.0;) ExoPlayerLib/2.19.1

@@ -1,0 +1,3 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="" tvg-url="https://www.bevy.be/bevyfiles/indonesia.xml" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFLukYBSLHmGfu6GoC68z95_NM9Rnte7bGHEhXfiaqleltngR-hpWh47uv&s=10" group-title="Sports",DAZN 1
+http://50.7.120.34:8080/DAZN1/index.m3u8

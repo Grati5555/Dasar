@@ -1,0 +1,7 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="JTV.id" tvg-name="" tvg-logo="https://mimipipi22.github.io/logo/nasional/jtv.jpg" group-title="INDONESIA TV", 37. JTV (FEED)
+http://122.248.43.242:1935/JTVSURABAYA/_definst_/myStream/playlist.m3u8
+#======================================================== GARUDA TV ====================================================================
+#======================================================== BALI TV ====================================================================
+#EXTVLCOPT:http-referrer=https://www.indihometv.com/
+#EXTVLCOPT:http-user-agent=IndiHomeTV/8.7.12 (Linux;Android 15.0.0;) ExoPlayerLib/2.19.1

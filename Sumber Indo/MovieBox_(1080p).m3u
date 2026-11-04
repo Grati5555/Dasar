@@ -1,0 +1,4 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="MovieBox.mn@SD" tvg-logo="https://www.mongolsat.mn/assets/img/channel/909.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" group-title="📂 HIBURAN",MovieBox (1080p)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+https://cdn4.skygo.mn/live/disk1/Moviebox/DASH-FTA/Moviebox.mpd

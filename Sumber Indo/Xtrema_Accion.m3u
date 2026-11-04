@@ -1,0 +1,4 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="XtremaAccion.ar@SD" tvg-logo="https://i.imgur.com/z5NwizH.png" http-referrer="https://xtrematv.com/?p=1434" group-title="📂 HIBURAN",Xtrema Accion
+#EXTVLCOPT:http-referrer=https://xtrematv.com/?p=1434
+https://stmv6.voxtvhd.com.br/cineaccion/cineaccion/playlist.m3u8

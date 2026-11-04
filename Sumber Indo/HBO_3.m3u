@@ -1,0 +1,3 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="hbosignature.us" tvg-name="ID: HBO Signature HD" tvg-logo="https://iili.io/Ju79f8g.png" group-title="📂 HIBURAN",HBO 3
+http://185.227.34.179:8080/hbo-3-hd/index.m3u8

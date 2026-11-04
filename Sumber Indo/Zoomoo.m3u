@@ -1,0 +1,12 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="63" tvg-logo="https://www.visionplus.id/images/repository/626/626-LOGO-m.png" group-title="Kids Channel",Zoomoo
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+#EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://vision.mikrofast.web.id/license?id=63
+https://d3b0v7fggu5zwm.cloudfront.net/out/v1/8554b3cb938e44038093df2d65080932/index.mpd
+=======================================
+//========================================================================
+>>> MOVIES
+//========================================================================
+=======================================

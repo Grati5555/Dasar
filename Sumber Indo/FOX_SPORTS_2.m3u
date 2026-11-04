@@ -1,0 +1,4 @@
+#EXTM3U
+#EXTINF:-1 group-title="Sports" tvg-logo="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/FS2_logo_2015.svg/1280px-FS2_logo_2015.svg.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail", FOX SPORTS 2
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+http://195.178.110.110/foxsports2/index.m3u8

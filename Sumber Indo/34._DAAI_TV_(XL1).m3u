@@ -1,0 +1,4 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="Daai.TV.id" tvg-name="" tvg-logo="https://mimipipi22.github.io/logo/nasional/daaitv.jpg" group-title="INDONESIA TV", 34. DAAI TV (XL1)
+https://atemecdnbalancer-voe.sysln.id/live/eds/DAAITV/mediampd/DAAITV.mpd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0

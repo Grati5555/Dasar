@@ -1,0 +1,3 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="auto.vtv" tvg-logo="https://object-streamo.emonaja.com/img/vtv.png" group-title="Kids Channel",VTV
+https://flv.intechmedia.net/live/ch107.m3u8

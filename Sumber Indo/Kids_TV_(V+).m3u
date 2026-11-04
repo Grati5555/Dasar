@@ -1,0 +1,7 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="KidsTV.id" tvg-logo="https://object-streamo.emonaja.com/img/kidstv.png" group-title="Kids Channel",Kids TV (V+)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+#EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://vision.mikrofast.web.id/license?id=56
+https://d3b0v7fggu5zwm.cloudfront.net/out/v1/9041826689ae4f9c9619576d411fa989/index.mpd

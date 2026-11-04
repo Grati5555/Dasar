@@ -1,0 +1,9 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="iNews.id" tvg-name="" tvg-logo="https://raw.githubusercontent.com/abidinrj/logo/refs/heads/main/INews.png" group-title="INDONESIA TV", 15. INEWS 1
+#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
+#EXTVLCOPT:http-user-agent=android-R+
+#https://r-plus.sedotcw3.workers.dev/index.m3u8?id=inews
+#https://beetv.my.id/xstreamx/rctiplus.m3u8?ch=inews
+#https://bintangstreaming.my.id/000/rcti.php/.m3u8?id=inews
+https://rplus.inisemar.my.id/inews.m3u8
+#======================================================== SINDONEWS ====================================================================

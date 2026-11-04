@@ -1,0 +1,5 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="hbo.bg" tvg-name="ID: HBO HD" tvg-logo="http://s3.i3ns.net:2052/portal/picon/2022-01/0ccfe41056aa7d1274f1fc80abe17ea3.png" group-title="📂 HIBURAN",HBO HD
+#EXTVLCOPT:http-referrer=https://maxstream.tv/
+#EXTVLCOPT:http-user-agent=IndiHomeTV/8.7.12 (Linux;Android 15.0.0;) ExoPlayerLib/2.19.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
+http://141.94.193.53/HBO_HD/index.m3u8

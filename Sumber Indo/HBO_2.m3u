@@ -1,0 +1,3 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="" tvg-name="ID: HBO HITS HD" tvg-logo="https://iili.io/Ju79f8g.png" group-title="📂 HIBURAN",HBO 2
+http://185.227.34.179:8080/hbo-2-hd/index.m3u8

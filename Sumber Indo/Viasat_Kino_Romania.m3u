@@ -1,0 +1,5 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="ViasatKino.ua@Romania" tvg-logo="https://i.imgur.com/io0WAkA.png" http-referrer="https://cool-tv.net/" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 VLC/3.0.18 LibVLC/3.0.18" group-title="📂 HIBURAN",Viasat Kino Romania
+#EXTVLCOPT:http-referrer=https://cool-tv.net/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 VLC/3.0.18 LibVLC/3.0.18
+https://flash1.bogulus1.cfd/tivi10/usergenrxs4f7zc.m3u8

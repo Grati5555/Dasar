@@ -1,0 +1,9 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="GTV.id" tvg-name="GTV" tvg-logo="https://raw.githubusercontent.com/abidinrj/logo/refs/heads/main/gtv.png" group-title="INDONESIA TV", 08. GTV 1
+#EXTVLCOPT:http-user-agent=android-R+
+#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
+#https://r-plus.sedotcw3.workers.dev/index.m3u8?id=gtv
+#https://beetv.my.id/xstreamx/rctiplus.m3u8?ch=gtv
+#https://bintangstreaming.my.id/000/rcti.php/.m3u8?id=gtv
+https://rplus.inisemar.my.id/gtv.m3u8
+#======================================================== INEWS ====================================================================

@@ -1,0 +1,10 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="Indosiar.id" tvg-name="" tvg-logo="https://raw.githubusercontent.com/abidinrj/logo/refs/heads/main/indosiar.png" group-title="INDONESIA TV", 03. INDOSIAR 1
+#EXTVLCOPT:http-user-agent=VidioPlayer/6.31.6
+#EXTVLCOPT:http-referrer=https://www.vidio.com/
+#EXTVLCOPT:http-origin=https://www.vidio.com
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=http://tvratu.my.id/vid/index.mpd?id=2058&type=drm
+#http://tvratu.my.id/vid/index.mpd?id=205&type=dash
+https://nextgenz.my.id/event/pidio/play.mpd?id=205&type=dash
+#======================================================== MOJI ====================================================================

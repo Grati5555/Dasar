@@ -1,0 +1,6 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="" tvg-name="Cinemax" tvg-logo="https://iptv.lancartech.co.id:443/images/YKMemZJn8ZK3UAp45Xvyj6un5rWGZ2eBiL3OsDHYkeXxKqC2D6nYQGw8o5IpyMpH.png" group-title="📂 HIBURAN",Cinemax
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:mimetype=application/dash+xml
+http://141.94.193.53/Cinemax_HD/index.m3u8

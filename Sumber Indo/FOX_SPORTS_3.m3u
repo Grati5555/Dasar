@@ -1,0 +1,4 @@
+#EXTM3U
+#EXTINF:0 tvg-id="SS4" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbQUJA02Qz9f_92dF__4nZqH0xnnrw7t6zDID0NcPMmQ&s" group-title="Sports", FOX SPORTS 3
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+http://195.178.110.110/foxsports3/index.m3u8

@@ -1,0 +1,9 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="MNCTV.id" tvg-name="MNCTV" tvg-name="" tvg-logo="https://raw.githubusercontent.com/abidinrj/logo/refs/heads/main/mnctv.png" group-title="INDONESIA TV", 05. MNCTV 1
+#EXTVLCOPT:http-user-agent=android-R+
+#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
+#https://r-plus.sedotcw3.workers.dev/index.m3u8?id=mnctv
+#https://beetv.my.id/xstreamx/rctiplus.m3u8?ch=mnctv
+#https://bintangstreaming.my.id/000/rcti.php/.m3u8?id=mnctv
+https://rplus.inisemar.my.id/mnctv.m3u8
+#======================================================== GTV ====================================================================

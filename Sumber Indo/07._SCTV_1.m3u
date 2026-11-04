@@ -1,0 +1,12 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="SCTV.id" tvg-name="" tvg-logo="https://raw.githubusercontent.com/abidinrj/logo/refs/heads/main/sctv.png" group-title="INDONESIA TV", 07. SCTV 1
+#EXTVLCOPT:http-user-agent=VidioPlayer/6.31.6
+#EXTVLCOPT:http-referrer=http://www.vidio.com/
+#EXTVLCOPT:http-origin=http://www.vidio.com
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=dash
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=http://tvratu.my.id/nissa/index.mpd?id=204&type=drm
+#http://tvratu.my.id/nissa/index.mpd?id=204&type=dash
+https://nextgenz.my.id/event/pidio/play.mpd?id=204&type=dash
+#======================================================== INDOSIAR ====================================================================

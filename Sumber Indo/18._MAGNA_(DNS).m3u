@@ -1,0 +1,7 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://raw.githubusercontent.com/abidinrj/logo/refs/heads/main/magna.jpg" group-title="INDONESIA TV", 18. MAGNA (DNS)
+https://op-flashcon-digdayahd-1.dens.tv/h/h24/index.m3u8
+#======================================================== JAKTV ====================================================================
+#EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1 (Linux; Android 13) ExoPlayerLib/2.15.1
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=fee85fded8ea4591b643468412bee3be:7e364f3ffd09c7b51c8d81430819177f

@@ -1,0 +1,4 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="TransTV.id" tvg-name="" tvg-logo="https://raw.githubusercontent.com/abidinrj/logo/refs/heads/main/transtv.png" group-title="INDONESIA TV", 04. TRANS TV 1
+#EXTVLCOPT:http-user-agent=lgadrm.mpdplayer/v1;(Linux; Android 16; id; tfjGCdW)
+https://live.cnnindonesia.com/transtv/smil:transtv/chunklist_w2685575259_b744100_sleng.m3u8

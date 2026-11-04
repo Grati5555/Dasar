@@ -1,0 +1,10 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="Bali TV.id" tvg-name="Bali TV.id" tvg-logo="https://mimipipi22.github.io/logo/nasional/balitv.jpg" group-title="INDONESIA TV", 40. BALI TV (MAX)
+https://cdnbal1.indihometv.com/atm/DASH/balitv/balitv-avc1_2500000=7-3277707030000000.mpd
+#======================================================== BANDUNG TV ====================================================================
+#======================================================== ELSHINTA TV ====================================================================
+#======================================================== ANTARA TV ====================================================================
+EXTVLCOPT:http-referrer=https://www.indihometv.com/
+#EXTVLCOPT:http-user-agent=IndiHomeTV/8.7.12 (Linux;Android 15.0.0;) ExoPlayerLib/2.19.1
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=69646b755f3130303030303030303030:e4a2359b05563399f1d9adfce641724a

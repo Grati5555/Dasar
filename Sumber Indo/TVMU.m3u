@@ -1,0 +1,6 @@
+#EXTM3U
+#EXTINF:-1 tvg-logo="https://i.imgur.com/yA25GaB.jpeg" tvg-id="itzplay.id" group-title="RELIGI",TVMU
+https://e.siar.us/live/tvmu.m3u8
+===================================MADINAH=====================================
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.dens.tv/
