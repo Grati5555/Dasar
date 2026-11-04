@@ -12,7 +12,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -22,9 +22,10 @@ jobs:
       - name: Run script
         run: python IndoCh.py
 
-      - name: Commit and push changes
+      - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add "Sumber Indo/" sources.txt select_ch.txt PlaylistINDOpilihan.m3u
-          git diff --quiet && git diff --cached --quiet || (git commit -m "Auto-update playlist pilihan [skip ci]" && git push)
+          git add "Sumber Indo/" "Sumber perKategori/" PlaylistINDOpilihan.m3u
+          git commit -m "Auto-update kategori dan playlist pilihan [skip ci]" || exit 0
+          git push
