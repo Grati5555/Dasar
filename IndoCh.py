@@ -4,7 +4,7 @@ import urllib.request
 
 SOURCES_FILE = "sources.txt"
 OUTPUT_DIR = "Sumber Indo"
-CATEGORY_DIR = "Kategori Indo"  # Direktori baru untuk output per kategori
+CATEGORY_DIR = "Sumber perKategori"  # Folder khusus output per kategori sesuai permintaan
 SELECT_FILE = "select_ch.txt"
 CUSTOM_PLAYLIST = "PlaylistINDOpilihan.m3u"
 
@@ -27,7 +27,7 @@ def parse_and_split_m3u():
         return
 
     channels = {}
-    categories = {}  # Dictionary untuk mengelompokkan entri berdasarkan kategori
+    categories = {}  # Dictionary untuk menampung data per kategori
 
     for url_idx, source_url in enumerate(source_urls, 1):
         print(f"Mengambil data dari Sumber ke-{url_idx}: {source_url}")
@@ -46,7 +46,7 @@ def parse_and_split_m3u():
             if line.startswith("#EXTINF:"):
                 extinf_line = line
                 
-                # Ekstrak nama channel
+                # Ekstrak nama channel (Pengaturan awal dipertahankan)
                 match = re.search(r',([^,]+)$', extinf_line)
                 raw_name = match.group(1).strip() if match else "Unknown"
                 clean_name = re.sub(r'\.\d+[A-Z]+$', '', raw_name)
@@ -54,7 +54,7 @@ def parse_and_split_m3u():
                 if not safe_name:
                     safe_name = "Unknown"
 
-                # Ekstrak kategori dari atribut group-title
+                # Ekstrak kategori berdasarkan atribut group-title
                 group_match = re.search(r'group-title="([^"]+)"', extinf_line, re.IGNORECASE)
                 if group_match:
                     raw_category = group_match.group(1).strip()
@@ -74,18 +74,18 @@ def parse_and_split_m3u():
                         block_lines.append(next_line)
                     i += 1
 
-                # Simpan ke dictionary channel (mempertahankan fungsi lama)
+                # Simpan ke dictionary channel (Pengaturan awal)
                 if safe_name not in channels:
                     channels[safe_name] = []
                 channels[safe_name].append(block_lines)
 
-                # Simpan ke dictionary kategori (fitur baru)
+                # Simpan ke dictionary kategori (Fitur tambahan folder Sumber perKategori)
                 if safe_category not in categories:
                     categories[safe_category] = []
                 categories[safe_category].append(block_lines)
             i += 1
 
-    # 1. Simpan file M3U terpisah per channel di folder Sumber Indo (Dipertahankan)
+    # 1. Simpan file M3U terpisah per channel di folder Sumber Indo (Pengaturan awal dipertahankan)
     for channel_name, entries in channels.items():
         file_path = os.path.join(OUTPUT_DIR, f"{channel_name}.m3u")
         with open(file_path, "w", encoding="utf-8") as f:
@@ -94,7 +94,7 @@ def parse_and_split_m3u():
                 for bline in block:
                     f.write(f"{bline}\n")
 
-    # 1.5 Simpan file M3U terpisah per kategori di folder Kategori Indo (Fitur Baru)
+    # 2. Simpan file M3U terpisah per kategori di folder Sumber perKategori (Pembaruan)
     for category_name, entries in categories.items():
         cat_file_path = os.path.join(CATEGORY_DIR, f"{category_name}.m3u")
         with open(cat_file_path, "w", encoding="utf-8") as f:
@@ -102,9 +102,9 @@ def parse_and_split_m3u():
             for block in entries:
                 for bline in block:
                     f.write(f"{bline}\n")
-        print(f"Memperbarui kategori: {category_name}.m3u")
+        print(f"Memperbarui kategori: {category_name}.m3u di folder {CATEGORY_DIR}")
 
-    # 2. Buat playlist gabungan khusus berdasarkan select_ch.txt (Dipertahankan)
+    # 3. Buat playlist gabungan khusus berdasarkan select_ch.txt (Pengaturan awal dipertahankan)
     if os.path.exists(SELECT_FILE):
         with open(SELECT_FILE, "r", encoding="utf-8") as f:
             selected_names = [line.strip() for line in f if line.strip() and not line.startswith("#")]
